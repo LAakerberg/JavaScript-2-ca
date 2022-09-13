@@ -1,0 +1,50 @@
+.navbar-brand:hover {
+    color: black;
+}
+
+
+.nav-link {
+    display: block;
+    padding: var(--#{$prefix}nav-link-padding-y) var(--#{$prefix}nav-link-padding-x);
+    font-size: 1.2rem;
+    font-weight: var(--#{$prefix}nav-link-font-weight);
+    color: rgb(219, 219, 219);
+    text-decoration: if($link-decoration == none, null, none);
+    @include transition($nav-link-transition);
+  
+    &:hover,
+    &:focus {
+      color: var(--#{$prefix}nav-link-hover-color);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 5px;
+    }
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 200,
+    'opsz' 48
+  }
+
+  .material-symbols-outlined {
+    color: rgb(255, 255, 255);
+  }
+
+  .active {
+    text-decoration: underline;
+    text-decoration-color: black;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+  }
+
+  .form-width {
+    max-width: 720px;
+    margin: 0px auto;
+}
+
+.row {
+    margin-right: 0;
+}

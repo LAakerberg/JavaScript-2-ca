@@ -1,3 +1,14 @@
-.card {
-    background-color: blue;
-}
+@import "variables.scss";
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+@import "main.scss";
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "navbar.scss";
+
+@import "profile.scss";
+
+@import "footer.scss";

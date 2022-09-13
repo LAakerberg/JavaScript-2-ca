@@ -1,0 +1,28 @@
+.profil-pic {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+}
+
+.list-small {
+    min-width: 100px;
+}
+
+.list-width {
+    width: 80%;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
+    color: var(--bs-list-group-color);
+    text-decoration: none;
+    background-color: var(--bs-list-group-bg);
+    border: var(--bs-list-group-border-width) solid rgba(0, 0, 0, 0.356);
+}
+
+.post-card {
+    max-width: 300px;
+    height: auto;
+}
