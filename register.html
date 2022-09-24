@@ -73,56 +73,39 @@
       </div>
 
       <!-- Login form -->
-      <div class="login-form px-2">
+      <div class="px-2">
         <div
           class="w-80 border border-dark container-sm form-width bg-lightred rounded-2"
         >
           <div class="p-2">
             <div class="mb-3">
-              <form id="form" method="POST">
-                <h1 class="h3 mb-3 fw-normal text-white">Please sign in</h1>
+              <form>
+                <h1 class="h3 mb-3 fw-normal text-white">
+                  Register information
+                </h1>
 
-                <div class="form-floating">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="floatingInput"
-                    name="email"
-                    placeholder="name@example.com"
-                    required
-                  />
+                <div class="form-floating py-1">
+                  <input type="name" class="form-control" id="floatingName" placeholder="Linus Aakerberg" required/>
+                  <label for="floatingInput">Name</label>
+                </div>
+
+                <div class="form-floating py-1">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required/>
                   <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating py-1">
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="floatingPassword"
-                    placeholder="Password"
-                    required
-                  />
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required type="password" />
                   <label for="floatingPassword required">Password</label>
                 </div>
 
                 <div class="checkbox mb-3 px-2">
                   <label>
-                    <input type="radio" value="remember-me" /> Remember me
+                    <input type="radio" value="remember-me" /> Sign up for newsletter
                   </label>
                 </div>
                 <div>
                   <div>
-                    <button class="btn btn-dark pt-1" type="submit">
-                      Sign in
-                    </button>
-                  </div>
-                  <div class="pt-1">
-                    <button
-                      class="btn btn-dark pt-1"
-                      name="forgotButton"
-                      type="submit"
-                    >
-                      Forgot password
-                    </button>
+                    <button class="btn btn-dark pt-1" type="submit">Register now</button>
                   </div>
                 </div>
               </form>
@@ -144,6 +127,6 @@
       </div>
     </footer>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/login.js" type="module"></script>
+    <script src="js/register.js" type="module"></script>
   </body>
 </html>
