@@ -26,7 +26,6 @@ formLogin.addEventListener("submit", (e) => {
   };
 
   // async function for the API call to login.
-
   async function loginUserRequest(apiUrl, data) {
     try {
       const postLoginData = {
@@ -41,7 +40,9 @@ formLogin.addEventListener("submit", (e) => {
       const accessToken = json.accessToken;
       const myAccessToken = accessToken;
       localStorage.setItem("myAccessToken", myAccessToken);
+      console.log(response.ok);
       console.log(json);
+      redirect(response);
       return json;
     } catch (error) {
       console.log(error);
@@ -50,3 +51,13 @@ formLogin.addEventListener("submit", (e) => {
   }
   loginUserRequest(`${apiUrl}${apiLogin}`, userLoginValue);
 });
+
+function redirect(response) {
+  setTimeout(function () {
+    if (response.ok == true) {
+      window.location.replace("/logins/successful.html");
+    } else {
+      console.log("Try again");
+    }
+  }, 2000);
+}
