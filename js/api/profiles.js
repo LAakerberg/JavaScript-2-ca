@@ -37,7 +37,7 @@ async function getProfiles(url) {
           profileBox.innerHTML += `
   
           <div class="thumbnail-card col-1">
-                  <div class="thumbnail-img"><img src="/img/michael-dam-mEZ3PoFGs_k-unsplash.jpg" class="card-img-top" alt="Profile picture of Jenna Steam"></div>
+                  <div class="thumbnail-img"><img src="/img/michael-dam-mEZ3PoFGs_k-unsplash.jpg" class="" alt="Profile picture of ${json[i].name}"></div>
                   <div class="card-body"><p class="card-title">${json[i].name}</p></div>
           </div>
           

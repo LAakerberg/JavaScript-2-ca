@@ -5,6 +5,19 @@ body {
     margin: 0px auto;
 }
 
+.post-link {
+  color: #000;
+  text-decoration: none;
+  opacity: .7;
+  transition: .6s;
+}
+
+.post-link:hover {
+  color: #B93B00;
+  opacity: 1;
+  transition: .6s;
+}
+
 header, main, footer {
     background-color: #FFF;
 }

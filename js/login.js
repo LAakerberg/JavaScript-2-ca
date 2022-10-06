@@ -55,7 +55,7 @@ formLogin.addEventListener("submit", (e) => {
 function redirect(response) {
   setTimeout(function () {
     if (response.ok == true) {
-      window.location.replace("/logins/successful.html");
+      window.location.replace("/pages/index.html");
     } else {
       console.log("Try again");
     }

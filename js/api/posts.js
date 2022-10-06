@@ -6,7 +6,7 @@ const postsBox = document.querySelector("#posts");
  * @param apiLogin is the API call to login auth
  */
 const apiUrl = "https://nf-api.onrender.com/";
-const apiGetPosts = "api/v1/social/posts/";
+const apiGetPosts = "api/v1/social/posts/" + "?_author=true&limit=600";
 
 async function getPosts(url) {
   try {
@@ -31,13 +31,13 @@ async function getPosts(url) {
     if (responsePosts.ok === true) {
       for (let i = 0; i < requestedPosts.length; i++) {
         const postId = requestedPosts[i].id;
-        console.log(`${apiUrl}${apiGetPosts}${postId}`);
-        if (i <= 5) {
+        if (i <= 8) {
           postsBox.innerHTML += `
-          <a href="/logins/posts/details.html?id=${postId}"
-          <div class="small-postcard col-1 border">
-                  <div class="card-body col-2"><span class="card-title title-text"> ${json[i].title}</h5></div>
-                  <div class="card-body col-1"><span class="card-text">${json[i].body}</span></div>
+          <a class="post-link border border-dark rounded p-1 m-1" href="/pages/posts/details.html?id=${postId}"
+          <div class="small-postcard border border-dark">
+                  <div class="card-body"><img class="thumbnail-img" src="${json[i].author.avatar}" alt="Picture of ${json[i].author.name}" /></div>
+                  <div class="card-body"><span class="text-muted">Posted by:</span> <span class="title-text">${json[i].author.name}</span></div>
+                  <div class="card-body"><span class="card-title title-text"> ${json[i].title}</h5></div>
           </div>
           </a>
           `;
@@ -47,7 +47,7 @@ async function getPosts(url) {
       console.log("Could load data");
       postsBox.innerHTML += `
   
-      <div class="thumbnail-card col-1"><p>You are not online</p>
+      <div class="thumbnail-card col-1"><p>Could not load data or you are not online</p>
       </div>
       
       `;

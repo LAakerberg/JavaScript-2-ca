@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SoMe - Social media app for my profile" />
+    <title>SoMe One - Profile</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-darkorange"
+        aria-label="Eighth navbar example"
+      >
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">SoMe One</a>
+          <button
+            class="navbar-toggler bg-dark"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample07"
+            aria-controls="navbarsExample07"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/api/index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/posts.html">Posts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../login.html">Log out</a>
+              </li>
+            </ul>
+            <form role="search">
+              <input
+                class="form-control"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+            </form>
+            <div class="ps-2 pt-2 pb-2">
+              <button class="btn btn-dark border-darkgrey">
+                <span class="material-symbols-outlined"> search </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="btn btn-dark border-darkgrey mx-2">You are online</div>
+      </nav>
+    </header>
+    <main class="">
+      <div class="row">
+        <!-- Page header/title information -->
+        <div class="col-md-12 d-flex justify-content-center">
+          <div class="page-header">
+            <h1 class="title">Welcome to SoMe platform</h1>
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!-- Main content 1 -->
+      <div class="row m-2 d-flex flex-column gap-2 align-items-center">
+        <div
+          class="w-75 col-md-10 py-2 border border-primary rounded d-flex flex-column align-items-center"
+        >
+          <!--Top div -->
+          <div class="mw-100 p-2 bd-highlight"><h2>Profiles</h2></div>
+          <div
+            id="profiles"
+            class="profiles row row-cols-1 row-cols-sm-2 row-cols-md-5"
+          ></div>
+
+          <!---->
+
+          <!-- Bottom div -->
+          <div class="mw-100 p-2 bd-highlight"><h2>Last posts</h2></div>
+          <div
+            id="posts"
+            class="profiles row row-cols-1 row-cols-sm-3 row-cols-md-4 justify-content-center"
+          ></div>
+          <!-- Bottom div -->
+        </div>
+      </div>
+      <!-- Main content 1 -->
+      <div class="row m-5 d-flex flex-column gap-3 align-items-center">
+        <div class="col-md-5 border border-primary rounded gap-2">
+          <h4>Contacts</h4>
+        </div>
+        <div
+          class="col-md-auto py-2 border border-primary rounded d-flex flex-column flex-sm-row-reverse gap-2"
+        >
+          <!-- Contact 1 -->
+          <div class="card post-card m-auto">
+            <img
+              src="/img/jurica-koletic-7YVZYZeITc8-unsplash.jpg"
+              class="card-img-top"
+              alt="Profile picture of James Nelson"
+            />
+            <div class="card-body">
+              <h5 class="card-title">James Nelson</h5>
+              <small class="text-muted">Last post:</small>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                eu luctus libero. Fusce et sapien dui.
+              </p>
+              <a href="#" class="btn btn-dark">Read more</a>
+            </div>
+          </div>
+          <!-- Contact 2 -->
+          <div class="card post-card m-auto">
+            <img
+              src="/img/michael-dam-mEZ3PoFGs_k-unsplash.jpg"
+              class="card-img-top"
+              alt="Profile picture of Jenna Steam"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Jenna Steam</h5>
+              <small class="text-muted">Last post:</small>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                eu luctus libero. Fusce et sapien dui.
+              </p>
+              <a href="#" class="btn btn-dark">Read more</a>
+            </div>
+          </div>
+          <!-- Contact 3 -->
+          <div class="card post-card m-auto">
+            <img
+              src="/img/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg"
+              class="card-img-top"
+              alt="Profile picture of Patrick McRoy"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Patrick McRoy</h5>
+              <small class="text-muted">Last post:</small>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                eu luctus libero. Fusce et sapien dui.
+              </p>
+              <a href="#" class="btn btn-dark">Read more</a>
+            </div>
+          </div>
+          <!-- End of contacts -->
+        </div>
+      </div>
+
+      <!-- Make a post -->
+    </main>
+    <footer>
+      <div class="container">
+        <footer
+          class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top border-secondary"
+        >
+          <div class="col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-muted">© 2022 SoMe One</span>
+          </div>
+
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="text-muted" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#twitter"></use></svg
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a class="text-muted" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#instagram"></use></svg
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a class="text-muted" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#facebook"></use></svg
+              ></a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </footer>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/api/profiles.js" type="module"></script>
+    <script src="/js/api/posts.js" type="module"></script>
+    <!--<script src="/js/logins/success.js" type="module"></script>-->
+  </body>
+</html>
