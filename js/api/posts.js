@@ -1,5 +1,7 @@
 const postsBox = document.querySelector("#posts");
 
+// import { deletePost } from "./posts/deletePost.js";
+
 /**
  * API calls
  * @param apiURL is the base API call
@@ -47,7 +49,7 @@ async function getPosts(url) {
       console.log("Could load data");
       postsBox.innerHTML += `
   
-      <div class="thumbnail-card col-1"><p>Could not load data or you are not online</p>
+      <div class="error-card col-1 border border-danger rounded-1 text-center"><p>Could not load the data!!</p>
       </div>
       
       `;

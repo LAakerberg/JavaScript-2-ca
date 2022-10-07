@@ -2,6 +2,8 @@ const emailForm = document.querySelector("#floatingInput");
 const pwdForm = document.querySelector("#floatingPassword");
 const formLogin = document.querySelector("#form");
 
+import { redirect } from "./function.js";
+
 /**
  * API calls
  * @param apiURL is the base API call
@@ -51,13 +53,3 @@ formLogin.addEventListener("submit", (e) => {
   }
   loginUserRequest(`${apiUrl}${apiLogin}`, userLoginValue);
 });
-
-function redirect(response) {
-  setTimeout(function () {
-    if (response.ok == true) {
-      window.location.replace("/pages/index.html");
-    } else {
-      console.log("Try again");
-    }
-  }, 2000);
-}

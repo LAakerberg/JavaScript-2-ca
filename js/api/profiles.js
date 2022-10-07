@@ -37,7 +37,7 @@ async function getProfiles(url) {
           profileBox.innerHTML += `
   
           <div class="thumbnail-card col-1">
-                  <div class="thumbnail-img"><img src="/img/michael-dam-mEZ3PoFGs_k-unsplash.jpg" class="" alt="Profile picture of ${json[i].name}"></div>
+                  <div class=""><img src="/img/michael-dam-mEZ3PoFGs_k-unsplash.jpg" class="thumbnail-profile-img" alt="Profile picture of ${json[i].name}"></div>
                   <div class="card-body"><p class="card-title">${json[i].name}</p></div>
           </div>
           
@@ -48,7 +48,7 @@ async function getProfiles(url) {
       console.log("Could load data");
       profileBox.innerHTML += `
   
-      <div class="thumbnail-card col-1"><p>You are not online</p>
+      <div class="error-card col-1 border border-danger rounded-1 text-center"><p>Could not load the data!!</p>
       </div>
       
       `;
