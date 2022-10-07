@@ -1,0 +1,21 @@
+/*
+ Styling of error message...
+*/
+.error-card {
+  width: 300px;
+  height: 50px;
+  background-color: rgb(255, 204, 204);
+  padding: 2px;
+  margin: auto;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+.error-card p {
+  padding: auto;
+  margin: auto;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=error.css.map */

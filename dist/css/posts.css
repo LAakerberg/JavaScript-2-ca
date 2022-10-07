@@ -9,6 +9,12 @@
   margin: 5px auto;
 }
 
+.media-image {
+  max-width: 400px;
+  max-height: auto;
+  object-fit: cover;
+}
+
 .title-text {
   font-size: 1.2rem;
   font-weight: bold;
