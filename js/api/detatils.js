@@ -5,6 +5,8 @@ const id = params.get("id");
 const postsBox = document.querySelector("#posts");
 const postTitle = document.querySelector("#post-top");
 
+import { deletePost } from "./posts/deletePost.js";
+
 /**
  * API calls
  * @param apiURL is the base API call
@@ -49,6 +51,12 @@ async function uniquePost(url) {
 
           <div class="w-100 col-1 border-top border-bottom border-dark">
             <div class="w-100"><span class="card-text">${json.body}</span></div>
+            <div class="w-100 pt-5 text-center">
+            <figure>
+            <img src="${json.media}" class="media-image border rounded" alt="Picture uploaded by: ${json.author.name}"/>
+            <figcaption>Picture uploaded by: ${json.author.name}</figcaption>
+            </figure>
+            </div>
           </div>
           <div class="w-100"><span class="card-text">Posted by: ${json.author.name}</span></div>
           <div class="w-100"><span class="card-text">Date: ${json.created}</span></div>
@@ -59,7 +67,7 @@ async function uniquePost(url) {
       console.log("Could load data");
       postsBox.innerHTML += `
   
-      <div class="thumbnail-card col-1"><p>You are not online</p>
+      <div class="error-card col-1 border border-danger rounded-1 text-center"><p>Could not find this post!!!</p>
       </div>
       
       `;
@@ -74,6 +82,7 @@ uniquePost(`${apiUrl}${apiSpecificPost}`);
 const modal = document.querySelector("#register-modal");
 const btn = document.querySelector("#open-register");
 const btnClose = document.querySelector("#btn-close");
+const btnDelete = document.querySelector("#btn-delete");
 
 btn.onclick = function () {
   modal.style.display = "block";
@@ -83,8 +92,20 @@ btnClose.onclick = function () {
   modal.style.display = "none";
 };
 
+btnDelete.onclick = function () {
+  deletePost(id);
+  alert("The post was successful deleted, you will now be redirected to start");
+  setTimeout(() => {
+    window.location.replace("/pages/posts/");
+  }, 2000);
+};
+
+console.log(btnDelete);
+
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 };
+
+// deletePost(2039);

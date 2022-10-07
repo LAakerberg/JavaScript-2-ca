@@ -15,7 +15,7 @@ const apiUrl = "https://nf-api.onrender.com/";
 const apiCreatePost = "api/v1/social/posts";
 
 postForm.addEventListener("submit", (e) => {
-  // e.preventDefault();
+  e.preventDefault();
 
   // Get the value from the login form on login.html page
 
