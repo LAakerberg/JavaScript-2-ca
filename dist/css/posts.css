@@ -9,10 +9,29 @@
   margin: 5px auto;
 }
 
+.media {
+  display: block;
+}
+
+.media-active {
+  display: block;
+}
+
+.media-inactive {
+  display: none;
+}
+
 .media-image {
   max-width: 400px;
   max-height: auto;
   object-fit: cover;
+}
+
+.author-name {
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 1px;
 }
 
 .title-text {
