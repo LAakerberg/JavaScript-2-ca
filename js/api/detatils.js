@@ -4,6 +4,9 @@ const id = params.get("id");
 
 const postsBox = document.querySelector("#posts");
 const postTitle = document.querySelector("#post-top");
+const mediaClass = document.querySelector("#media");
+
+console.log(postTitle);
 
 import { deletePost } from "./posts/deletePost.js";
 
@@ -19,10 +22,7 @@ const reactions = `_reactions`;
 const tru = `=true`;
 
 const apiUrl = "https://nf-api.onrender.com/";
-const apiSpecificPost = `api/v1/social/posts/` + id + `?` + author + tru;
-
-console.log(apiUrl);
-console.log(apiSpecificPost);
+const apiGetPosts = `api/v1/social/posts/` + id + `?` + author + tru;
 
 async function uniquePost(url) {
   try {
@@ -38,7 +38,40 @@ async function uniquePost(url) {
     console.log(responsePosts);
     const json = await responsePosts.json();
     const requestedPosts = json;
+
     console.log(requestedPosts);
+
+    // Gets the date from the post and format it to new format
+    const dateRequested = new Date(`${requestedPosts.created}`);
+    const month = dateRequested.getMonth() + 1;
+    const date = dateRequested.getDate(2, `0`);
+    const year = dateRequested.getFullYear();
+
+    const dateCreated = date + `.` + month + `.` + year;
+
+    // Gets the time from the post and format it to new format
+    const timeRequested = new Date(`${requestedPosts.created}`);
+    const hours = timeRequested.getHours();
+    const minutes = timeRequested.getMinutes();
+
+    const timeCreated = hours + `:` + minutes;
+
+    /*     const output =
+      myDate.getUTCDate() +
+      "." +
+      (myDate.getUTCMonth() + 1) +
+      "." +
+      myDate.getUTCFullYear();
+
+    console.log(output);
+
+    const myTime = myDate.getUTCHours() + ":" + myDate.getUTCMinutes();
+
+    console.log(myTime); */
+
+    /*     if (requestedPosts.media === ) {
+      mediaClass.classList.remove(".text-center");
+    } */
 
     // IF Statement checks if the response.ok is return true
     // (This will be my check if localStorage is successful and acting as "You are Online state")
@@ -51,15 +84,15 @@ async function uniquePost(url) {
 
           <div class="w-100 col-1 border-top border-bottom border-dark">
             <div class="w-100"><span class="card-text">${json.body}</span></div>
-            <div class="w-100 pt-5 text-center">
-            <figure>
+            <div id="media" class="w-100 pt-5 text-center">
+            <figure class="media">
             <img src="${json.media}" class="media-image border rounded" alt="Picture uploaded by: ${json.author.name}"/>
             <figcaption>Picture uploaded by: ${json.author.name}</figcaption>
             </figure>
             </div>
           </div>
           <div class="w-100"><span class="card-text">Posted by: ${json.author.name}</span></div>
-          <div class="w-100"><span class="card-text">Date: ${json.created}</span></div>
+          <div class="w-100"><span class="card-text">Created: ${dateCreated} ${timeCreated}</span></div>
           <div class="w-100"><span class="card-text">Tags: ${json.tags}</span></div>
           
           `;
@@ -77,7 +110,7 @@ async function uniquePost(url) {
   }
 }
 
-uniquePost(`${apiUrl}${apiSpecificPost}`);
+uniquePost(`${apiUrl}${apiGetPosts}`);
 
 const modal = document.querySelector("#register-modal");
 const btn = document.querySelector("#open-register");
