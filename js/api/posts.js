@@ -33,17 +33,20 @@ async function getPosts(url) {
     if (responsePosts.ok === true) {
       for (let i = 0; i < requestedPosts.length; i++) {
         const postId = requestedPosts[i].id;
-        if (i <= 8) {
-          postsBox.innerHTML += `
-          <a class="post-link border border-dark rounded p-1 m-1" href="/pages/posts/details.html?id=${postId}"
-          <div class="small-postcard border border-dark">
-                  <div class="card-body"><img class="thumbnail-img" src="${json[i].author.avatar}" alt="Picture of ${json[i].author.name}" /></div>
-                  <div class="card-body"><span class="text-muted">Posted by:</span> <span class="title-text">${json[i].author.name}</span></div>
-                  <div class="card-body"><span class="card-title title-text"> ${json[i].title}</h5></div>
-          </div>
-          </a>
-          `;
+
+        if (!json[i].author.avatar) {
+          continue;
         }
+
+        postsBox.innerHTML += `
+        <a class="post-link border border-dark rounded p-1 m-1" href="/pages/posts/details.html?id=${postId}"
+        <div class="small-postcard border border-dark">
+                <div class="card-body"><img class="thumbnail-img" src="${json[i].author.avatar}" alt="Picture of ${json[i].author.name}" /></div>
+                <div class="card-body"><span class="text-muted">Posted by:</span> <span class="author-name">${json[i].author.name}</span></div>
+                <div class="card-body"><span class="card-title title-text"> ${json[i].title}</h5></div>
+        </div>
+        </a>
+        `;
       }
     } else {
       console.log("Could load data");
