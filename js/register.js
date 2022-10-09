@@ -1,6 +1,8 @@
 const registerName = document.querySelector("#floatingInputName");
 const registerEmail = document.querySelector("#floatingInputEmail");
 const registerPwd = document.querySelector("#floatingPasswordRegister");
+const registerAvatar = document.querySelector("#floatingAvatarImage");
+const registerBanner = document.querySelector("#floatingBannerImage");
 const registerForm = document.querySelector("#register-form");
 
 const url = "https://nf-api.onrender.com/api/v1/social/auth/register";
@@ -23,10 +25,21 @@ registerForm.addEventListener("submit", (e) => {
 
   // Get the value from the login form on login.html page
 
+  if (registerBanner.value === "") {
+    registerBanner.value =
+      "https://publicdomainarchive.com/wp-content/uploads/2017/09/free-stock-photos-public-domain-images-013-1000x667.jpg";
+  }
+  if (registerAvatar.value === "") {
+    registerAvatar.value =
+      "https://assets.reedpopcdn.com/little-nightmares-2s-free-enhanced-edition-update-out-now-for-pc-ps5-and-xbox-series-x-s-1629905869658.jpg/BROK/resize/690%3E/format/jpg/quality/75/little-nightmares-2s-free-enhanced-edition-update-out-now-for-pc-ps5-and-xbox-series-x-s-1629905869658.jpg";
+  }
+
   const registerUserValue = {
     name: registerName.value,
     email: registerEmail.value,
     password: registerPwd.value,
+    banner: registerBanner.value,
+    avatar: registerAvatar.value,
   };
 
   async function registerNewUser(apiURL, data) {

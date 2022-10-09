@@ -39,9 +39,16 @@ formLogin.addEventListener("submit", (e) => {
       };
       const response = await fetch(apiUrl, postLoginData);
       const json = await response.json();
+
       const accessToken = json.accessToken;
       const myAccessToken = accessToken;
+
       localStorage.setItem("myAccessToken", myAccessToken);
+
+      localStorage.setItem("name", json.name);
+      localStorage.setItem("avatar", json.avatar);
+      localStorage.setItem("email", json.email);
+
       console.log(response.ok);
       console.log(json);
       redirect(response);
