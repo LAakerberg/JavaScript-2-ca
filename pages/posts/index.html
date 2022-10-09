@@ -79,10 +79,32 @@
       <div class="row m-2 d-flex flex-column gap-2 align-items-center">
         <div class="w-75 col-md-10 py-2 border border-primary rounded d-flex flex-column  align-items-center">
           <!--Top div -->
-          <div class="d-flex flex-row w-100 p-2 bd-highlight border border-primary justify-content-center text-center">
-          <div class="p-1 flex-fill w-100 border border-primary">1</div>
-          <div class="p-1 flex-fill w-100 border border-primary"><h2>Posts</h2></div>
-          <div class="p-1 flex-fill w-100 border border-primary">3</div>
+          <div class="d-flex flex-row w-100 p-2 bd-highlight border border-primary">
+          <div class="p-1 flex-fill w-100 border border-primary text-center">
+            <div>Filter by date:</div>
+            <div>
+              <input type="button" id="newestPost" name="drone" value="Newest">
+              <label for="drone"></label>
+              <input type="button" id="oldestPost" name="dewey" value="Oldest">
+              <label for="dewey"></label>
+            </div>
+            <div>
+              <label>Filter by profile</label>
+              <div>
+              <select id="profile-selection" class="selection">
+              </select>
+              </div>
+            </div>
+          </div>
+          <div class="p-1 flex-fill w-100 border border-primary text-center"><h2>Posts</h2></div>
+          <div class="p-1 w-100 border border-primary">
+            <form role="search">
+              <div class="form-floating py-1">
+                <input type="search" class="form-control" id="searchItem" name="email" placeholder="Search for posts" />
+                <label for="floatingInput">Search for posts</label>
+              </div>
+            </form>
+          </div>
           </div>
           <div id="posts" class="profiles row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center"></div>
           <!--Top div -->
@@ -160,7 +182,8 @@
       </div>
     </footer>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/api/posts.js" type="module"></script>
+    <script src="/js/api/post.js" type="module"></script>
+    <script src="/js/api/posts/getPosts.js" type="module"></script>
     <script src="/js/api/posts/createPost.js" type="module"></script>
   </body>
 </html>
