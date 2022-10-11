@@ -58,7 +58,7 @@ async function uniquePost(url) {
 
     if (responsePosts.ok === true) {
       postTitle.innerHTML += `
-        <h2 class="card-title title-text p-0">${json.title}</h2>
+        <h2 class="card-title title-text text-white p-0">${json.title}</h2>
         `;
       postsBox.innerHTML += `
 

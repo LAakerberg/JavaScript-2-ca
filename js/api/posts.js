@@ -62,8 +62,8 @@ export async function requestPost(url) {
           <div class="w-auto card-header d-flex">
             <div class="w-auto p-1 text-dark profileImg"><img class="profile-thumbnail" src="${json[i].author.avatar}" alt="Picture of ${postAuthor}" /></div>
             <div class="w-auto d-flex flex-column flex-fill">
-              <div class="w-auto p-1 text-dark flex-fill">${postAuthor}</div>
-              <div class="w-auto p-1 text-dark">${dateCreated}</div>
+              <div class="w-auto p-1 text-dark flex-fill author-name">${postAuthor}</div>
+              <div class="w-auto p-1 text-dark date-posted">${dateCreated}</div>
             </div>
           </div>
             <div class="w-auto card-body text-dark">

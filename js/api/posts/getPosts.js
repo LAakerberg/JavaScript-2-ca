@@ -69,7 +69,7 @@ export async function requestPost(url) {
                 <div class="card-body"><img class="thumbnail-img" src="${json[i].author.avatar}" alt="Picture of ${postAuthor}" /></div>
                 <div class="card-body"><span class="card-title title-text"> ${postTitle}</h5></div>
                 <div class="card-body"><span class="text-muted">Posted by:</span> <span class="author-name">${postAuthor}</span></div>
-                <div class="card-body"><span class="text-muted">Posted by:</span> <span class="author-name">${dateCreated}</span></div>
+                <div class="card-body"><span class="text-muted">Posted by:</span> <span class="date">${dateCreated}</span></div>
         </div>
         </a>`;
 
