@@ -1,23 +1,23 @@
-const emailForm = document.querySelector("#floatingInput");
-const pwdForm = document.querySelector("#floatingPassword");
-const formLogin = document.querySelector("#form");
+const emailForm = document.querySelector('#floatingInput');
+const pwdForm = document.querySelector('#floatingPassword');
+const formLogin = document.querySelector('#form');
 
-import { redirect } from "./function.js";
+import { redirect } from './function.js';
 
 /**
  * API calls
  * @param apiURL is the base API call
  * @param apiLogin is the API call to login auth
  */
-const apiUrl = "https://nf-api.onrender.com/";
-const apiLogin = "api/v1/social/auth/login";
+const apiUrl = 'https://nf-api.onrender.com/';
+const apiLogin = 'api/v1/social/auth/login';
 
 /**
  *
  * @param formLogin is a addEventListener for the submit button on the login form
  */
 
-formLogin.addEventListener("submit", (e) => {
+formLogin.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // Get the value from the login form on login.html page
@@ -31,9 +31,9 @@ formLogin.addEventListener("submit", (e) => {
   async function loginUserRequest(apiUrl, data) {
     try {
       const postLoginData = {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       };
@@ -43,11 +43,11 @@ formLogin.addEventListener("submit", (e) => {
       const accessToken = json.accessToken;
       const myAccessToken = accessToken;
 
-      localStorage.setItem("myAccessToken", myAccessToken);
+      localStorage.setItem('myAccessToken', myAccessToken);
 
-      localStorage.setItem("name", json.name);
-      localStorage.setItem("avatar", json.avatar);
-      localStorage.setItem("email", json.email);
+      localStorage.setItem('name', json.name);
+      localStorage.setItem('avatar', json.avatar);
+      localStorage.setItem('email', json.email);
 
       console.log(response.ok);
       console.log(json);
@@ -60,3 +60,9 @@ formLogin.addEventListener("submit", (e) => {
   }
   loginUserRequest(`${apiUrl}${apiLogin}`, userLoginValue);
 });
+
+/* logOutUser.addEventListener("")
+
+function logOutUser() {
+
+} */

@@ -1,10 +1,8 @@
-const allProfilePosts = document.querySelector("#profile-post")
-const profileImage = document.querySelector("#profile-img");
+const allProfilePosts = document.querySelector('#profile-post');
+const profileImage = document.querySelector('#profile-img');
 
 export function profileData(data) {
-const { name, _count, avatar } = data
-
-
+  const { name, _count, avatar } = data;
 }
 
 /* import { deletePost } from '../posts/deletePost'; */
@@ -13,49 +11,47 @@ import { apiUrl } from '../apiBase.js';
 import { apiGetProfile } from '../apiBase.js';
 import { authFetch } from '../authFetch.js';
 import { headers } from '../authFetch.js';
+import { logOutUser } from '../../function.js';
 
 const method = 'GET';
 
-const profileName = localStorage.getItem("name");
-const profileAvatar = localStorage.getItem("avatar");
-const profileEmail = localStorage.getItem("email");
-console.log(profileName, profileAvatar, profileEmail)
+const profileName = localStorage.getItem('name');
+const profileAvatar = localStorage.getItem('avatar');
+const profileEmail = localStorage.getItem('email');
+console.log(profileName, profileAvatar, profileEmail);
 
 async function fetchProfile(url) {
+  try {
+    const response = await authFetch(
+      url,
+      {
+        method,
+      },
+      headers()
+    );
 
-    try {
+    const json = await response.json();
+    const profile = json;
+    console.log(response);
+    console.log(profile.avatar);
+    console.log(profile.posts);
 
-        const response = await authFetch(
-            url,
-            {
-              method,
-            },
-            headers()
-          );
+    profileImage.innerHTML += `<img src="${profile.avatar}" alt="Profile picture of ${profile.name}" class="profil-pic rounded" />`;
 
-        const json = await response.json();
-        const profile = json;
-        console.log(response);
-        console.log(profile.avatar);
-        console.log(profile.posts);
+    const profileData = profile;
+    const profilePosted = profile.posts;
 
-        profileImage.innerHTML += `<img src="${profile.avatar}" alt="Profile picture of ${profile.name}" class="profil-pic rounded" />`
+    for (let i = 0; i < profilePosted.length; i++) {
+      if (profilePosted[i].media === '') {
+        let element = document.querySelector('#media');
+        element.classList.remove('media');
+        element.classList.add('media-hide');
+        console.log(profilePosted[0].media);
+        console.log(profilePosted[1].media);
+        console.log(profilePosted[2].media);
+      }
 
-        const profileData = profile
-        const profilePosted = profile.posts;
-
-        for (let i = 0; i < profilePosted.length; i++) {
-
-            if (profilePosted[i].media === "") {
-                let element = document.querySelector("#media")
-                element.classList.remove("media")
-                element.classList.add("media-hide")
-                console.log(profilePosted[0].media)
-                console.log(profilePosted[1].media)
-                console.log(profilePosted[2].media)
-            }
-
-            const implanted = `
+      const implanted = `
 
             <div class="w-auto card text-white bg-lightpurple mb-3">
               <div class="w-auto card-header d-flex">
@@ -79,25 +75,20 @@ async function fetchProfile(url) {
                 <div class="w-auto card-body text-dark">Comment</div>
             </div>
             `;
-    
-            allProfilePosts.innerHTML += `${implanted}`;
 
-        }
+      allProfilePosts.innerHTML += `${implanted}`;
+    }
 
-/*         profilePosted.forEach(profilePost => {
+    /*         profilePosted.forEach(profilePost => {
 
             console.log(profilePost)
         }); */
-
-
-    } catch (error) {
-console.log(error);
-    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 fetchProfile(`${apiUrl}${apiGetProfile}/${profileName}?_posts=true`);
-
-
 
 /* const modal = document.querySelector('#register-modal');
 const btn = document.querySelector('#open-register');
@@ -127,3 +118,5 @@ window.onclick = function (event) {
     modal.style.display = 'none';
   }
 }; */
+
+logOutUser();
