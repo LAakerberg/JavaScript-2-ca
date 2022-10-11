@@ -8,6 +8,7 @@ body {
 
 .post-link a {
   text-decoration: none;
+  max-width: 940px;
 }
 
 .post-link {
@@ -15,6 +16,7 @@ body {
   text-decoration: none;
   opacity: 0.7;
   transition: 0.6s;
+  max-width: 940px;
 }
 
 .post-link:hover {
@@ -23,11 +25,21 @@ body {
   transition: 0.6s;
 }
 
-header, main, footer {
+header,
+main,
+footer {
   background-color: #FFF;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+h1, .h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
   padding: 15px 5px 15px 5px;
 }
 
@@ -93,6 +105,14 @@ p {
   padding: 10px 20px;
 }
 
+.media {
+  display: block;
+}
+
+.media-hide {
+  display: none;
+}
+
 /*!
  * Bootstrap  v5.2.1 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -127,6 +147,7 @@ p {
   --bs-darkgrey: rgba(82, 82, 82, 0.795);
   --bs-lightred: rgb(253, 82, 52);
   --bs-lightpurple: rgb(230, 221, 255);
+  --bs-darkpurple: rgb(88, 83, 104);
   --bs-primary: #0d6efd;
   --bs-secondary: #dc3545;
   --bs-success: #198754;
@@ -139,6 +160,7 @@ p {
   --bs-darkgrey-rgb: 82, 82, 82;
   --bs-lightred-rgb: 253, 82, 52;
   --bs-lightpurple-rgb: 230, 221, 255;
+  --bs-darkpurple-rgb: 88, 83, 104;
   --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 220, 53, 69;
   --bs-success-rgb: 25, 135, 84;
@@ -2989,6 +3011,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: rgb(230, 221, 255);
 }
 
+.btn-darkpurple {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: rgb(88, 83, 104);
+  --bs-btn-border-color: rgb(88, 83, 104);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #4b4758;
+  --bs-btn-hover-border-color: #464253;
+  --bs-btn-focus-shadow-rgb: 113, 109, 127;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #464253;
+  --bs-btn-active-border-color: #423e4e;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: rgb(88, 83, 104);
+  --bs-btn-disabled-border-color: rgb(88, 83, 104);
+}
+
 .btn-primary {
   --bs-btn-color: #fff;
   --bs-btn-bg: #0d6efd;
@@ -3190,6 +3229,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: rgb(230, 221, 255);
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: rgb(230, 221, 255);
+  --bs-gradient: none;
+}
+
+.btn-outline-darkpurple {
+  --bs-btn-color: rgb(88, 83, 104);
+  --bs-btn-border-color: rgb(88, 83, 104);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: rgb(88, 83, 104);
+  --bs-btn-hover-border-color: rgb(88, 83, 104);
+  --bs-btn-focus-shadow-rgb: 88, 83, 104;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: rgb(88, 83, 104);
+  --bs-btn-active-border-color: rgb(88, 83, 104);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: rgb(88, 83, 104);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: rgb(88, 83, 104);
   --bs-gradient: none;
 }
 
@@ -4915,6 +4971,15 @@ textarea.form-control-lg {
   color: #4a4652;
 }
 
+.alert-darkpurple {
+  --bs-alert-color: #35323e;
+  --bs-alert-bg: #dedde1;
+  --bs-alert-border-color: #cdcbd2;
+}
+.alert-darkpurple .alert-link {
+  color: #2a2832;
+}
+
 .alert-primary {
   --bs-alert-color: #084298;
   --bs-alert-bg: #cfe2ff;
@@ -5333,6 +5398,20 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #5c5866;
   border-color: #5c5866;
+}
+
+.list-group-item-darkpurple {
+  color: #35323e;
+  background-color: #dedde1;
+}
+.list-group-item-darkpurple.list-group-item-action:hover, .list-group-item-darkpurple.list-group-item-action:focus {
+  color: #35323e;
+  background-color: #c8c7cb;
+}
+.list-group-item-darkpurple.list-group-item-action.active {
+  color: #fff;
+  background-color: #35323e;
+  border-color: #35323e;
 }
 
 .list-group-item-primary {
@@ -6984,6 +7063,11 @@ textarea.form-control-lg {
   background-color: RGBA(230, 221, 255, var(--bs-bg-opacity, 1)) !important;
 }
 
+.text-bg-darkpurple {
+  color: #fff !important;
+  background-color: RGBA(88, 83, 104, var(--bs-bg-opacity, 1)) !important;
+}
+
 .text-bg-primary {
   color: #fff !important;
   background-color: RGBA(13, 110, 253, var(--bs-bg-opacity, 1)) !important;
@@ -7050,6 +7134,13 @@ textarea.form-control-lg {
 }
 .link-lightpurple:hover, .link-lightpurple:focus {
   color: #ebe4ff !important;
+}
+
+.link-darkpurple {
+  color: rgb(88, 83, 104) !important;
+}
+.link-darkpurple:hover, .link-darkpurple:focus {
+  color: #464253 !important;
 }
 
 .link-primary {
@@ -7547,6 +7638,11 @@ textarea.form-control-lg {
 .border-lightpurple {
   --bs-border-opacity: 1;
   border-color: rgba(var(--bs-lightpurple-rgb), var(--bs-border-opacity)) !important;
+}
+
+.border-darkpurple {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-darkpurple-rgb), var(--bs-border-opacity)) !important;
 }
 
 .border-primary {
@@ -8431,6 +8527,11 @@ textarea.form-control-lg {
   color: rgba(var(--bs-lightpurple-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-darkpurple {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-darkpurple-rgb), var(--bs-text-opacity)) !important;
+}
+
 .text-primary {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
@@ -8540,6 +8641,11 @@ textarea.form-control-lg {
 .bg-lightpurple {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-lightpurple-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-darkpurple {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-darkpurple-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-primary {
@@ -11291,8 +11397,7 @@ textarea.form-control-lg {
 */
 .profil-pic {
   width: 100%;
-  max-width: 300px;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 .list-small {
@@ -11316,6 +11421,19 @@ textarea.form-control-lg {
 .post-card {
   max-width: 300px;
   height: auto;
+}
+
+.profile-data {
+  max-width: 300px;
+  padding-bottom: 10px;
+}
+
+.create-post-with {
+  max-width: 600px;
+}
+
+.post-feed {
+  max-width: 1500px;
 }
 
 /*
@@ -11351,6 +11469,17 @@ Show thumbnails of profiles on login screen
   object-fit: cover;
 }
 
+.profile-thumbnail {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileImg {
+  max-width: 110px;
+}
+
 .small-postcard {
   max-width: 150px;
   height: 200px;
@@ -11382,7 +11511,13 @@ Show thumbnails of profiles on login screen
 
 .author-name {
   color: #000;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-bottom: 1px;
+}
+
+.date-posted {
+  font-size: 1rem;
   font-weight: bold;
   padding-bottom: 1px;
 }
@@ -11423,20 +11558,25 @@ Show thumbnails of profiles on login screen
  Styling of error message...
 */
 .error-card {
-  width: 300px;
-  height: 50px;
+  max-width: 350px;
+  max-height: 60px;
   background-color: rgb(255, 204, 204);
-  padding: 2px;
+  padding: 0px;
   margin: auto;
   align-items: center;
   align-self: center;
   align-content: center;
 }
 
-.error-card p {
+.error-card {
   padding: auto;
   margin: auto;
   font-weight: 500;
+}
+
+.error-text {
+  padding: 0px;
+  margin: 0px;
 }
 
 /*# sourceMappingURL=styles.css.map */

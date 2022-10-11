@@ -29,7 +29,13 @@
 
 .author-name {
   color: #000;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-bottom: 1px;
+}
+
+.date-posted {
+  font-size: 1rem;
   font-weight: bold;
   padding-bottom: 1px;
 }

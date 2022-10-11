@@ -1,12 +1,13 @@
 body {
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    margin: 0px auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  margin: 0px auto;
 }
 
 .post-link a {
   text-decoration: none;
+  max-width: 940px;
 }
 
 .post-link {
@@ -14,6 +15,7 @@ body {
   text-decoration: none;
   opacity: .7;
   transition: .6s;
+  max-width: 940px;
 }
 
 .post-link:hover {
@@ -22,33 +24,40 @@ body {
   transition: .6s;
 }
 
-header, main, footer {
-    background-color: #FFF;
+header,
+main,
+footer {
+  background-color: #FFF;
 }
 
-h1, h2, h3, h4, h5 {
-    padding: 15px 5px 15px 5px;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 15px 5px 15px 5px;
 }
 
 .img-size {
-    max-width: 40%;
-    margin: 10px;
+  max-width: 40%;
+  margin: 10px;
 }
 
 p {
-    padding: 8px 5px;
+  padding: 8px 5px;
 }
 
 .card-text {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 $custom-theme-colors: (
-    "darkorange": rgb(185, 59, 0),
-    "darkgrey": rgba(82, 82, 82, 0.795),
-    "lightred": rgb(253, 82, 52),
-    "lightpurple": rgb(230, 221, 255)
+  "darkorange": rgb(185, 59, 0),
+  "darkgrey": rgba(82, 82, 82, 0.795),
+  "lightred": rgb(253, 82, 52),
+  "lightpurple": rgb(230, 221, 255),
+  "darkpurple": rgb(88, 83, 104),
 );
 
 $theme-colors: map-merge($custom-theme-colors, $theme-colors);
@@ -56,52 +65,60 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 // Register form - Modal for Edit + Remove post + register form
 
 .modal-design {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(2, 1, 1, 0.507);
-  }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(2, 1, 1, 0.507);
+}
 
-  // Modal for Edit + Remove post + register form
-  // Close btn
-  
-  .modal-box {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    width: 60%;
-  }
-  
-  .close {
-    color: #aaaaaa;
-    font-size: 34px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: underline;
-    cursor: pointer;
-  }
+// Modal for Edit + Remove post + register form
+// Close btn
 
-  .button-cancel {
-    background-color: rgb(81, 81, 81);
-    color: #fff;
-    border-radius: 10px 0px 0px 10px;
-    padding: 10px 20px;
-  }
+.modal-box {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 60%;
+}
 
-  .button-delete {
-    min-width: 125px;
-    background-color: #B93B00;
-    color: #FFF;
-    border-radius: 0px 10px 10px 0px;
-    padding: 10px 20px;
-  }
+.close {
+  color: #aaaaaa;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button-cancel {
+  background-color: rgb(81, 81, 81);
+  color: #fff;
+  border-radius: 10px 0px 0px 10px;
+  padding: 10px 20px;
+}
+
+.button-delete {
+  min-width: 125px;
+  background-color: #B93B00;
+  color: #FFF;
+  border-radius: 0px 10px 10px 0px;
+  padding: 10px 20px;
+}
+
+.media {
+  display: block;
+}
+
+.media-hide {
+  display: none;
+}

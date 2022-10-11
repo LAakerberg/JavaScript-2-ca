@@ -3,8 +3,7 @@
 */
 .profil-pic {
   width: 100%;
-  max-width: 300px;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 .list-small {
@@ -28,6 +27,19 @@
 .post-card {
   max-width: 300px;
   height: auto;
+}
+
+.profile-data {
+  max-width: 300px;
+  padding-bottom: 10px;
+}
+
+.create-post-with {
+  max-width: 600px;
+}
+
+.post-feed {
+  max-width: 1500px;
 }
 
 /*
@@ -61,6 +73,17 @@ Show thumbnails of profiles on login screen
   height: 150px;
   border-radius: 10px;
   object-fit: cover;
+}
+
+.profile-thumbnail {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileImg {
+  max-width: 110px;
 }
 
 /*# sourceMappingURL=profile.css.map */
