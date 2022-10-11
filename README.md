@@ -17,11 +17,12 @@ Building of an social media app during my course assignment in JavaScript 2
 - - Specific/detailed post page by ID.
 - - Delete post on specific/detailed page (Only working on specific pages)
 
-## Features to be added
+## Features to be added or changes
 
 - Search function
 - Update posts function
-- (moving delete posts from detailed page to profile page)
+- Moving delete posts from detailed page to profile page
+- When creating a post, the site should reload...
 
 ## UI/UX
 
