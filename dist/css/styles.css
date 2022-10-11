@@ -16,7 +16,6 @@ body {
   text-decoration: none;
   opacity: 0.7;
   transition: 0.6s;
-  max-width: 940px;
 }
 
 .post-link:hover {
@@ -109,8 +108,33 @@ p {
   display: block;
 }
 
+.content-center {
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  margin: auto;
+}
+
 .media-hide {
   display: none;
+}
+
+.post-profile-feed {
+  flex-direction: row;
+}
+
+.profile-bar {
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.postfeed {
+  flex: 2;
 }
 
 /*!
@@ -11554,6 +11578,14 @@ Show thumbnails of profiles on login screen
   color: black;
 }
 
+@media screen and (min-width: 750px) {
+  .post-profile-feed {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+  }
+}
 /*
  Styling of error message...
 */

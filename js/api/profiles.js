@@ -29,20 +29,24 @@ async function getProfiles(url) {
     const requestedProfiles = json;
     console.log(requestedProfiles);
 
+
     // IF Statement checks if the response.ok is return true
     // (This will be my check if localStorage is successful and acting as "You are Online state")
     if (responseProfile.ok === true) {
       for (let i = 0; i < requestedProfiles.length; i++) {
-        if (i <= 7) {
-          profileBox.innerHTML += `
-  
-          <div class="thumbnail-card col-1">
-                  <div class=""><img src="/img/michael-dam-mEZ3PoFGs_k-unsplash.jpg" class="thumbnail-profile-img" alt="Profile picture of ${json[i].name}"></div>
-                  <div class="card-body"><p class="card-title">${json[i].name}</p></div>
-          </div>
-          
-          `;
+        if (i <= 20 && requestedProfiles[i].avatar === "") {
+          continue;
         }
+        const authorName = requestedProfiles[i].name;
+        const authorAvatar = requestedProfiles[i].avatar;
+        profileBox.innerHTML += `
+
+        <div class="thumbnail-card col-1">
+                <div class=""><img src="${authorAvatar}" class="thumbnail-profile-img" alt="Profile picture of ${authorName}"></div>
+                <div class="card-body"><p class="card-title author-name">${authorName}</p></div>
+        </div>
+        
+        `;
       }
     } else {
       console.log("Could load data");

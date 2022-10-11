@@ -68,7 +68,7 @@ export async function requestPost(url) {
           </div>
             <div class="w-auto card-body text-dark">
               <h4 class="w-auto card-title">${postTitle}</h4>
-              <div class="w-auto p-1 text-dark"><p class="card-text">${postBody}</p></div>
+              <div class="w-auto p-1 text-dark"><p class="card-text text-break">${postBody}</p></div>
             </div>
             <div class="w-auto card-body text-dark">Comment</div>
         </div></a>`;
@@ -86,7 +86,6 @@ export async function requestPost(url) {
           postsBox.innerHTML = `${implanted}`;
           requestPost(oldAPI);
         };
-
       }
     } else {
       console.log('Could load data');
