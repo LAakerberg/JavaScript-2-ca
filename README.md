@@ -1,4 +1,5 @@
 # JavaScript-2-ca
+
 Building of an social media app during my course assignment in JavaScript 2
 
 ## Features
@@ -30,3 +31,4 @@ Building of an social media app during my course assignment in JavaScript 2
 - Clean up html/scss & JavaScript code
 - - Add more export/import functions
 - - Add/remove unnecessary innerHTML / console.log code....
+- - Secure that's the site is 100% responsive
