@@ -11529,6 +11529,7 @@ Show thumbnails of profiles on login screen
 
 .media-image {
   max-width: 400px;
+  width: 80%;
   max-height: auto;
   object-fit: cover;
 }

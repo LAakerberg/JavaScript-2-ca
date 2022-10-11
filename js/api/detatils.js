@@ -38,11 +38,10 @@ async function uniquePost(url) {
     console.log(responsePosts);
     const json = await responsePosts.json();
     const requestedPosts = json;
-
-    console.log(requestedPosts);
+    const dateTime = requestedPosts.created;
 
     // Gets the date from the post and format it to new format
-    const dateRequested = new Date(`${requestedPosts.created}`);
+    const dateRequested = new Date(dateTime);
     const month = dateRequested.getMonth() + 1;
     const date = dateRequested.getDate(2, `0`);
     const year = dateRequested.getFullYear();
@@ -50,7 +49,7 @@ async function uniquePost(url) {
     const dateCreated = date + `.` + month + `.` + year;
 
     // Gets the time from the post and format it to new format
-    const timeRequested = new Date(`${requestedPosts.created}`);
+    const timeRequested = new Date(dateTime);
     const hours = timeRequested.getHours();
     const minutes = timeRequested.getMinutes();
 

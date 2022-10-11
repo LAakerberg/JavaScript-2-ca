@@ -34,12 +34,13 @@ async function fetchProfile(url) {
     const profile = json;
     console.log(response);
     console.log(profile.avatar);
-    console.log(profile.posts);
 
     profileImage.innerHTML += `<img src="${profile.avatar}" alt="Profile picture of ${profile.name}" class="profil-pic rounded" />`;
 
     const profileData = profile;
     const profilePosted = profile.posts;
+    console.log(profilePosted);
+    console.log(profilePosted[0].created);
 
     for (let i = 0; i < profilePosted.length; i++) {
       if (profilePosted[i].media === '') {
@@ -51,6 +52,13 @@ async function fetchProfile(url) {
         console.log(profilePosted[2].media);
       }
 
+      const dateRequested = new Date(profilePosted[i].created);
+      const month = dateRequested.getMonth() + 1;
+      const date = dateRequested.getDate(2, `0`);
+      const year = dateRequested.getFullYear();
+
+      const dateCreated = date + `.` + month + `.` + year;
+
       const implanted = `
 
             <div class="w-auto card text-white bg-lightpurple mb-3">
@@ -58,7 +66,7 @@ async function fetchProfile(url) {
                 <div class="w-auto p-1 text-dark profileImg"><img class="profile-thumbnail" src="${profile.avatar}" alt="Picture of ${profilePosted[i].owner}" /></div>
                 <div class="w-auto d-flex flex-column flex-fill">
                   <div class="w-auto p-1 text-dark author-name">${profilePosted[i].owner}</div>
-                  <div class="w-auto p-1 text-darkpurple date-posted">${profilePosted[i].created}</div>
+                  <div class="w-auto p-1 text-darkpurple date-posted">${dateCreated}</div>
                 </div>
                 <div><button><span class="material-symbols-outlined edit-icon">delete </span></button></div>
               </div>

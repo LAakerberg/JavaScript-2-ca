@@ -1,12 +1,12 @@
-const profileBox = document.querySelector("#profiles");
+const profileBox = document.querySelector('#profiles');
 
 /**
  * API calls
  * @param apiURL is the base API call
  * @param apiLogin is the API call to login auth
  */
-const apiUrl = "https://nf-api.onrender.com/";
-const apiGetProfile = "api/v1/social/profiles";
+const apiUrl = 'https://nf-api.onrender.com/';
+const apiGetProfile = 'api/v1/social/profiles';
 
 /**
  *
@@ -15,11 +15,11 @@ const apiGetProfile = "api/v1/social/profiles";
 
 async function getProfiles(url) {
   try {
-    const myAccessToken = localStorage.getItem("myAccessToken");
+    const myAccessToken = localStorage.getItem('myAccessToken');
     const getProfilesData = {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${myAccessToken}`,
       },
     };
@@ -29,12 +29,11 @@ async function getProfiles(url) {
     const requestedProfiles = json;
     console.log(requestedProfiles);
 
-
     // IF Statement checks if the response.ok is return true
     // (This will be my check if localStorage is successful and acting as "You are Online state")
     if (responseProfile.ok === true) {
       for (let i = 0; i < requestedProfiles.length; i++) {
-        if (i <= 20 && requestedProfiles[i].avatar === "") {
+        if (i <= 20 && requestedProfiles[i].avatar === '') {
           continue;
         }
         const authorName = requestedProfiles[i].name;
@@ -49,7 +48,7 @@ async function getProfiles(url) {
         `;
       }
     } else {
-      console.log("Could load data");
+      console.log('Could load data');
       profileBox.innerHTML += `
   
       <div class="error-card col-1 border border-danger rounded-1 text-center"><p>Could not load the data!!</p>
@@ -59,7 +58,7 @@ async function getProfiles(url) {
     }
   } catch (error) {
     console.log(error);
-    console.log("Could load the API");
+    console.log('Could load the API');
   }
 }
 
