@@ -43,14 +43,14 @@ async function fetchProfile(url) {
     console.log(profilePosted[0].created);
 
     for (let i = 0; i < profilePosted.length; i++) {
-      if (profilePosted[i].media === '') {
+      /*       if (profilePosted[i].media === '') {
         let element = document.querySelector('#media');
         element.classList.remove('media');
         element.classList.add('media-hide');
         console.log(profilePosted[0].media);
         console.log(profilePosted[1].media);
         console.log(profilePosted[2].media);
-      }
+      } */
 
       const dateRequested = new Date(profilePosted[i].created);
       const month = dateRequested.getMonth() + 1;

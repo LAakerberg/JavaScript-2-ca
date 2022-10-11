@@ -92,7 +92,7 @@ async function uniquePost(url) {
 uniquePost(`${apiUrl}${apiGetPosts}`);
 
 const modal = document.querySelector('#register-modal');
-const btn = document.querySelector('#open-register');
+const btn = document.querySelector('#open-delete');
 const btnClose = document.querySelector('#btn-close');
 const btnDelete = document.querySelector('#btn-delete');
 
@@ -108,7 +108,7 @@ btnDelete.onclick = function () {
   deletePost(id);
   alert('The post was successful deleted, you will now be redirected to start');
   setTimeout(() => {
-    window.location.replace('/pages/posts/');
+    window.location.replace('/pages');
   }, 2000);
 };
 
