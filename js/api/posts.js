@@ -9,16 +9,16 @@ const oldestPostFilter = document.querySelector('#oldestPost');
  * @param apiGetPosts is the API call to gets posts, imported from apiBase
  */
 
-import { apiUrl } from './apiBase.js';
-import { apiGetPosts } from './apiBase.js';
-import { sortCreatedDesc } from './apiBase.js';
-import { sortCreatedAsc } from './apiBase.js';
+import { apiUrl } from './auth/apiBase.js';
+import { apiGetPosts } from './auth/apiBase.js';
+import { sortCreatedDesc } from './auth/apiBase.js';
+import { sortCreatedAsc } from './auth/apiBase.js';
 import { logOutUser } from '../function.js';
 
 // Import auth for the API call incl the local storage token.
 
-import { authFetch } from './authFetch.js';
-import { headers } from './authFetch.js';
+import { authFetch } from './auth/authFetch.js';
+import { headers } from './auth/authFetch.js';
 
 const method = 'GET';
 
@@ -57,17 +57,17 @@ export async function requestPost(url) {
             'https://static.thenounproject.com/png/2884221-200.png';
         }
         const implanted = `
-        <a class="post-link p-1 m-1" href="/pages/posts/details.html?id=${postId}">
+        <a class="post-link p-1 m-1" href="/pages/posts/details/?id=${postId}">
         <div class="w-auto card text-white bg-lightpurple mb-3">
           <div class="w-auto card-header d-flex">
-            <div class="w-auto p-1 text-dark profileImg"><img class="profile-thumbnail" src="${json[i].author.avatar}" alt="Picture of ${postAuthor}" /></div>
+            <div class="w-auto p-1 text-dark profileImg text-break"><img class="profile-thumbnail" src="${json[i].author.avatar}" alt="Picture of ${postAuthor}" /></div>
             <div class="w-auto d-flex flex-column flex-fill">
-              <div class="w-auto p-1 text-dark flex-fill author-name">${postAuthor}</div>
+              <div class="w-auto p-1 text-dark flex-fill author-name text-break">${postAuthor}</div>
               <div class="w-auto p-1 text-dark date-posted">${dateCreated}</div>
             </div>
           </div>
             <div class="w-auto card-body text-dark">
-              <h4 class="w-auto card-title">${postTitle}</h4>
+              <h4 class="w-auto card-title text-break">${postTitle}</h4>
               <div class="w-auto p-1 text-dark"><p class="card-text text-break">${postBody}</p></div>
             </div>
             <div class="w-auto card-body text-dark">Comment</div>
@@ -76,13 +76,13 @@ export async function requestPost(url) {
         postsBox.innerHTML += `${implanted}`;
 
         newestPostFilter.onclick = function () {
-          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=500`;
+          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=10`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(newAPI);
         };
 
         oldestPostFilter.onclick = function () {
-          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=500`;
+          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=10`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(oldAPI);
         };
@@ -101,6 +101,6 @@ export async function requestPost(url) {
   }
 }
 
-requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=500`);
+requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=50`);
 
 logOutUser();
