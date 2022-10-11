@@ -15,7 +15,7 @@ Building of an social media app during my course assignment in JavaScript 2
 - - Post feed with all created posts
 - - Filter/Sort be newest or oldest posts
 - - Specific/detailed post page by ID.
-- - Delete post on specific/detailed page
+- - Delete post on specific/detailed page (Only working on specific pages)
 
 ## Features to be added
 
