@@ -22,7 +22,7 @@ Building of an social media app during my course assignment in JavaScript 2
 - Search function
 - Update posts function
 
-* Moving delete posts from detailed page to profile page
+* Moving delete posts from detailed page to profile page.
 * When creating a post, the site should reload...
 * If media file not is uploaded by user it should hide/display none for the div.
 
