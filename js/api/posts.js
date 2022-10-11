@@ -101,6 +101,6 @@ export async function requestPost(url) {
   }
 }
 
-requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=50`);
+requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=80`);
 
 logOutUser();

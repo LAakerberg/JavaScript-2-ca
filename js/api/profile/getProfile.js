@@ -7,10 +7,10 @@ export function profileData(data) {
 
 /* import { deletePost } from '../posts/deletePost'; */
 
-import { apiUrl } from '../apiBase.js';
-import { apiGetProfile } from '../apiBase.js';
-import { authFetch } from '../authFetch.js';
-import { headers } from '../authFetch.js';
+import { apiUrl } from '../auth/apiBase.js';
+import { apiGetProfile } from '../auth/apiBase.js';
+import { authFetch } from '../auth/authFetch.js';
+import { headers } from '../auth/authFetch.js';
 import { logOutUser } from '../../function.js';
 
 const method = 'GET';

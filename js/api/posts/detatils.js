@@ -8,7 +8,7 @@ const mediaClass = document.querySelector('#media');
 
 console.log(postTitle);
 
-import { deletePost } from './posts/deletePost.js';
+import { deletePost } from './deletePost.js';
 
 /**
  * API calls

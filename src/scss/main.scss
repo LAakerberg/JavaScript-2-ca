@@ -141,9 +141,9 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
   justify-items: center;
   flex: 1;
   min-width: 250px;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .postfeed {
-  flex: 2;
+  flex: 3;
 }

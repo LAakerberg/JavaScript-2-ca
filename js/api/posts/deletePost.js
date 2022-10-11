@@ -1,16 +1,16 @@
-const btnDelete = document.querySelector("#btn-delete");
+const btnDelete = document.querySelector('#btn-delete');
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
-const id = params.get("id");
+const id = params.get('id');
 
-import { authFetch } from "../authFetch.js";
+import { authFetch } from '../auth/authFetch.js';
 
-const apiUrl = "https://nf-api.onrender.com/";
+const apiUrl = 'https://nf-api.onrender.com/';
 const apiDeletePost = `api/v1/social/posts/` + id;
 
-const action = "/posts";
-const method = "delete";
+const action = '/posts';
+const method = 'delete';
 
 // async function for the API call to login.
 export async function deletePost(id) {

@@ -9,15 +9,15 @@ const oldestPostFilter = document.querySelector('#oldestPost');
  * @param apiGetPosts is the API call to gets posts, imported from apiBase
  */
 
-import { apiUrl } from '../apiBase.js';
-import { apiGetPosts } from '../apiBase.js';
-import { sortCreatedDesc } from '../apiBase.js';
-import { sortCreatedAsc } from '../apiBase.js';
+import { apiUrl } from '../auth/apiBase.js';
+import { apiGetPosts } from '../auth/apiBase.js';
+import { sortCreatedDesc } from '../auth/apiBase.js';
+import { sortCreatedAsc } from '../auth/apiBase.js';
 
 // Import auth for the API call incl the local storage token.
 
-import { authFetch } from '../authFetch.js';
-import { headers } from '../authFetch.js';
+import { authFetch } from '../auth/authFetch.js';
+import { headers } from '../auth/authFetch.js';
 
 const method = 'GET';
 
@@ -74,13 +74,13 @@ export async function requestPost(url) {
         postsBox.innerHTML += `${implanted}`;
 
         newestPostFilter.onclick = function () {
-          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=500`;
+          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=200`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(newAPI);
         };
 
         oldestPostFilter.onclick = function () {
-          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=500`;
+          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=200`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(oldAPI);
         };
