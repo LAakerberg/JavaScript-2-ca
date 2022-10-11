@@ -24,7 +24,6 @@ async function getProfiles(url) {
       },
     };
     const responseProfile = await fetch(url, getProfilesData);
-    console.log(responseProfile);
     const json = await responseProfile.json();
     const requestedProfiles = json;
     console.log(requestedProfiles);
@@ -33,7 +32,8 @@ async function getProfiles(url) {
     // (This will be my check if localStorage is successful and acting as "You are Online state")
     if (responseProfile.ok === true) {
       for (let i = 0; i < requestedProfiles.length; i++) {
-        if (i <= 20 && requestedProfiles[i].avatar === '') {
+        if (requestedProfiles[i].avatar == '') {
+          // Skip profile´s without avatar URL
           continue;
         }
         const authorName = requestedProfiles[i].name;

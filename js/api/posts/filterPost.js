@@ -74,13 +74,13 @@ export async function getPosts(url) {
         postsBox.innerHTML += `${implanted}`;
 
         newestPostFilter.onclick = function () {
-          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=5500`;
+          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=500`;
           postsBox.innerHTML = `${implanted}`;
           getPosts(newAPI);
         };
 
         oldestPostFilter.onclick = function () {
-          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=5500`;
+          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=500`;
           postsBox.innerHTML = `${implanted}`;
           getPosts(oldAPI);
         };
@@ -99,4 +99,4 @@ export async function getPosts(url) {
   }
 }
 
-getPosts(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=5500`);
+getPosts(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=500`);

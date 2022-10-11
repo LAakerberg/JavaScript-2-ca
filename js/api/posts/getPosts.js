@@ -62,7 +62,6 @@ export async function requestPost(url) {
           continue;
         }
 
-
         const implanted = `
         <a class="post-link border border-dark rounded p-1 m-1" href="/pages/posts/details.html?id=${postId}"
         <div class="small-postcard border border-dark">
@@ -76,13 +75,13 @@ export async function requestPost(url) {
         postsBox.innerHTML += `${implanted}`;
 
         newestPostFilter.onclick = function () {
-          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=5500`;
+          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=500`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(newAPI);
         };
 
         oldestPostFilter.onclick = function () {
-          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=5500`;
+          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=500`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(oldAPI);
         };

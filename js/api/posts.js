@@ -54,8 +54,9 @@ export async function requestPost(url) {
         const postTitle = requestedPosts[i].title;
         const postBody = requestedPosts[i].body;
 
-        if (!json[i].author.avatar) {
-          continue;
+        if (json[i].author.avatar === '') {
+          json[i].author.avatar =
+            'https://static.thenounproject.com/png/2884221-200.png';
         }
         const implanted = `
         <a class="post-link p-1 m-1" href="/pages/posts/details.html?id=${postId}">
@@ -77,13 +78,13 @@ export async function requestPost(url) {
         postsBox.innerHTML += `${implanted}`;
 
         newestPostFilter.onclick = function () {
-          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=5500`;
+          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=500`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(newAPI);
         };
 
         oldestPostFilter.onclick = function () {
-          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=5500`;
+          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=500`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(oldAPI);
         };
@@ -102,8 +103,6 @@ export async function requestPost(url) {
   }
 }
 
-requestPost(
-  `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=5500`
-);
+requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=500`);
 
 logOutUser();

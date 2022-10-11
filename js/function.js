@@ -10,7 +10,6 @@ export function redirect(response) {
 
 export function logOutUser() {
   const logOut = document.querySelector('#logout');
-  console.log(logOut);
 
   logOut.onclick = function () {
     localStorage.clear();
