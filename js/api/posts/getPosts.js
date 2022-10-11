@@ -42,7 +42,6 @@ export async function requestPost(url) {
     const requestedPosts = json;
 
     // IF Statement checks if the response.ok is return true
-    // (This will be my check if localStorage is successful and acting as "You are Online state")
 
     if (responsePosts.ok === true) {
       for (let i = 0; i < requestedPosts.length; i++) {

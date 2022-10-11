@@ -26,12 +26,12 @@ async function getProfiles(url) {
     const responseProfile = await fetch(url, getProfilesData);
     const json = await responseProfile.json();
     const requestedProfiles = json;
-    console.log(requestedProfiles);
 
     // IF Statement checks if the response.ok is return true
-    // (This will be my check if localStorage is successful and acting as "You are Online state")
+
     if (responseProfile.ok === true) {
       for (let i = 0; i < requestedProfiles.length; i++) {
+        // IF statement will continue if the avatar URL is missing, could still fail if the picture is not allowed
         if (requestedProfiles[i].avatar == '') {
           // Skip profile´s without avatar URL
           continue;
