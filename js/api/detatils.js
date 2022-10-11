@@ -1,14 +1,14 @@
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
-const id = params.get("id");
+const id = params.get('id');
 
-const postsBox = document.querySelector("#posts");
-const postTitle = document.querySelector("#post-top");
-const mediaClass = document.querySelector("#media");
+const postsBox = document.querySelector('#posts');
+const postTitle = document.querySelector('#post-top');
+const mediaClass = document.querySelector('#media');
 
 console.log(postTitle);
 
-import { deletePost } from "./posts/deletePost.js";
+import { deletePost } from './posts/deletePost.js';
 
 /**
  * API calls
@@ -21,16 +21,16 @@ const comments = `_comments`;
 const reactions = `_reactions`;
 const tru = `=true`;
 
-const apiUrl = "https://nf-api.onrender.com/";
+const apiUrl = 'https://nf-api.onrender.com/';
 const apiGetPosts = `api/v1/social/posts/` + id + `?` + author + tru;
 
 async function uniquePost(url) {
   try {
-    const myAccessToken = localStorage.getItem("myAccessToken");
+    const myAccessToken = localStorage.getItem('myAccessToken');
     const getPostsData = {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${myAccessToken}`,
       },
     };
@@ -56,26 +56,6 @@ async function uniquePost(url) {
 
     const timeCreated = hours + `:` + minutes;
 
-    /*     const output =
-      myDate.getUTCDate() +
-      "." +
-      (myDate.getUTCMonth() + 1) +
-      "." +
-      myDate.getUTCFullYear();
-
-    console.log(output);
-
-    const myTime = myDate.getUTCHours() + ":" + myDate.getUTCMinutes();
-
-    console.log(myTime); */
-
-    /*     if (requestedPosts.media === ) {
-      mediaClass.classList.remove(".text-center");
-    } */
-
-    // IF Statement checks if the response.ok is return true
-    // (This will be my check if localStorage is successful and acting as "You are Online state")
-
     if (responsePosts.ok === true) {
       postTitle.innerHTML += `
         <h2 class="card-title title-text p-0">${json.title}</h2>
@@ -97,7 +77,7 @@ async function uniquePost(url) {
           
           `;
     } else {
-      console.log("Could load data");
+      console.log('Could load data');
       postsBox.innerHTML += `
   
       <div class="error-card col-1 border border-danger rounded-1 text-center"><p>Could not find this post!!!</p>
@@ -112,24 +92,24 @@ async function uniquePost(url) {
 
 uniquePost(`${apiUrl}${apiGetPosts}`);
 
-const modal = document.querySelector("#register-modal");
-const btn = document.querySelector("#open-register");
-const btnClose = document.querySelector("#btn-close");
-const btnDelete = document.querySelector("#btn-delete");
+const modal = document.querySelector('#register-modal');
+const btn = document.querySelector('#open-register');
+const btnClose = document.querySelector('#btn-close');
+const btnDelete = document.querySelector('#btn-delete');
 
 btn.onclick = function () {
-  modal.style.display = "block";
+  modal.style.display = 'block';
 };
 
 btnClose.onclick = function () {
-  modal.style.display = "none";
+  modal.style.display = 'none';
 };
 
 btnDelete.onclick = function () {
   deletePost(id);
-  alert("The post was successful deleted, you will now be redirected to start");
+  alert('The post was successful deleted, you will now be redirected to start');
   setTimeout(() => {
-    window.location.replace("/pages/posts/");
+    window.location.replace('/pages/posts/');
   }, 2000);
 };
 
@@ -137,7 +117,7 @@ console.log(btnDelete);
 
 window.onclick = function (event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    modal.style.display = 'none';
   }
 };
 

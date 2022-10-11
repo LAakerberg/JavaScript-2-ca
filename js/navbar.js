@@ -3,7 +3,7 @@ const navbarMenu = document.querySelector("#navbar");
 navbarMenu.innerHTML += `
 
 <nav
-        class="navbar navbar-expand-lg navbar-dark bg-darkorange"
+        class="navbar navbar-expand-lg navbar-dark bg-darkpurple"
         aria-label="Eighth navbar example"
       >
         <div class="container">

@@ -1,5 +1,10 @@
-const postsBox = document.querySelector("#posts");
+import { requestPost } from './posts/getPosts.js';
 
-import getPosts from "./posts/getPosts";
+import { apiUrl } from './apiBase.js';
+import { apiGetPosts } from './apiBase.js';
+import { sortCreatedDesc } from './apiBase.js';
+import { sortCreatedAsc } from './apiBase.js';
 
-getPosts();
+requestPost(
+  `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=5500`
+);
