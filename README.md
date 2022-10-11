@@ -19,6 +19,7 @@ Building of an social media app during my course assignment in JavaScript 2
 
 - Search function
 - Update posts function
+- (moving delete posts from detailed page to profile page)
 
 ## UI/UX
 
