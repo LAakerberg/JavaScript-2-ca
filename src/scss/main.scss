@@ -15,7 +15,6 @@ body {
   text-decoration: none;
   opacity: .7;
   transition: .6s;
-  max-width: 940px;
 }
 
 .post-link:hover {
@@ -119,6 +118,32 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
   display: block;
 }
 
+.content-center {
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  margin: auto;
+}
+
 .media-hide {
   display: none;
+}
+
+
+.post-profile-feed {
+  flex-direction: row;
+}
+
+.profile-bar {
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.postfeed {
+  flex: 2;
 }
