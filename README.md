@@ -20,6 +20,10 @@ Building of an social media app during my course assignment in JavaScript 2
 - Search function
 - Update posts function
 
+## UI/UX
+
+- More user friendly UI/UX
+
 ## Clean up the code
 
 - Clean up html/scss & JavaScript code
