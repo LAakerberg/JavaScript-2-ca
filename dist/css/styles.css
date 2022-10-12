@@ -113,7 +113,6 @@ p {
   align-content: center;
   justify-content: center;
   justify-items: center;
-  margin: auto;
 }
 
 .media-hide {
@@ -11397,6 +11396,32 @@ textarea.form-control-lg {
 
 .material-symbols-outlined {
   color: rgb(255, 255, 255);
+}
+
+.icon {
+  color: rgb(7, 7, 7);
+  transition: 0.6s;
+  object-fit: cover;
+}
+
+button {
+  text-decoration: none;
+  display: inline-block;
+  background-color: #fff;
+  padding: 0px;
+  margin: 0px;
+}
+
+.icon:hover {
+  color: white;
+  transition: 0.6s;
+}
+
+button:hover {
+  background-color: rgb(88, 83, 104);
+  border-color: rgb(119, 38, 38);
+  text-decoration: none;
+  display: inline-block;
 }
 
 .active {
