@@ -1,18 +1,13 @@
 const profileBox = document.querySelector('#profiles');
 
-/**
- * API calls
- * @param apiURL is the base API call
- * @param apiLogin is the API call to login auth
- */
+
 const apiUrl = 'https://nf-api.onrender.com/';
 const apiGetProfile = 'api/v1/social/profiles';
 
 /**
  *
- * @param getProfiles calls the API with profiles information
+ * @param {string} url calls the API with profiles information
  */
-
 async function getProfiles(url) {
   try {
     const myAccessToken = localStorage.getItem('myAccessToken');
