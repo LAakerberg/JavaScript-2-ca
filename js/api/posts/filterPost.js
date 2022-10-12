@@ -14,11 +14,7 @@ const searchForPost = document.querySelector('#searchPost');
 const newestPostFilter = document.querySelector('#newestPost');
 const oldestPostFilter = document.querySelector('#oldestPost');
 
-/**
- * API calls
- * @param apiURL is the base API base call imported from apiBase
- * @param apiGetPosts is the API call to gets posts, imported from apiBase
- */
+
 
 const method = 'GET';
 
@@ -27,6 +23,11 @@ searchForPost.addEventListener('input', (e) => {
   console.log(value);
 });
 
+/**
+ * Get Post Data
+ * @param {string} url is the base API base call imported from apiBase
+ * @returns {void} This function returns nothing
+ */
 export async function getPosts(url) {
   try {
     const responsePosts = await authFetch(
