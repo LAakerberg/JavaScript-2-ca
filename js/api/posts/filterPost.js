@@ -1,3 +1,14 @@
+import {
+  apiUrl,
+  apiGetPosts,
+  sortCreatedDesc,
+  sortCreatedAsc
+} from '../apiBase.js';
+
+// Import auth for the API call incl the local storage token.
+
+import { authFetch, headers } from '../authFetch.js';
+
 const postsBox = document.querySelector('#posts');
 const searchForPost = document.querySelector('#searchPost');
 const newestPostFilter = document.querySelector('#newestPost');
@@ -8,16 +19,6 @@ const oldestPostFilter = document.querySelector('#oldestPost');
  * @param apiURL is the base API base call imported from apiBase
  * @param apiGetPosts is the API call to gets posts, imported from apiBase
  */
-
-import { apiUrl } from '../apiBase.js';
-import { apiGetPosts } from '../apiBase.js';
-import { sortCreatedDesc } from '../apiBase.js';
-import { sortCreatedAsc } from '../apiBase.js';
-
-// Import auth for the API call incl the local storage token.
-
-import { authFetch } from '../authFetch.js';
-import { headers } from '../authFetch.js';
 
 const method = 'GET';
 
