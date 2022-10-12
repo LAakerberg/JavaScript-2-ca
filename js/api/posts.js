@@ -3,12 +3,6 @@ const searchForPost = document.querySelector('#searchPost');
 const newestPostFilter = document.querySelector('#newestPost');
 const oldestPostFilter = document.querySelector('#oldestPost');
 
-/**
- * API calls
- * @param apiURL is the base API base call imported from apiBase
- * @param apiGetPosts is the API call to gets posts, imported from apiBase
- */
-
 import { apiUrl } from './auth/apiBase.js';
 import { apiGetPosts } from './auth/apiBase.js';
 import { sortCreatedDesc } from './auth/apiBase.js';
@@ -22,6 +16,10 @@ import { headers } from './auth/authFetch.js';
 
 const method = 'GET';
 
+/**
+ * API calls
+ * @param url The API url to call
+ */
 export async function requestPost(url) {
   try {
     const responsePosts = await authFetch(
