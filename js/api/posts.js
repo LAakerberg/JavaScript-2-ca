@@ -1,5 +1,4 @@
 const postsBox = document.querySelector('#posts');
-const searchForPost = document.querySelector('#searchPost');
 const newestPostFilter = document.querySelector('#newestPost');
 const oldestPostFilter = document.querySelector('#oldestPost');
 
