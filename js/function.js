@@ -1,11 +1,9 @@
 export function redirect(response) {
-  setTimeout(function () {
-    if (response.ok == true) {
-      window.location.replace('/pages/profile/');
-    } else {
-      console.log('Try again');
-    }
-  }, 2000);
+  if (response.ok == true) {
+    window.location.replace('/pages/profile/');
+  } else {
+    console.log('Try again');
+  }
 }
 
 export function logOutUser() {
