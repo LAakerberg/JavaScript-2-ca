@@ -1,9 +1,11 @@
+import { load } from '../storage/index.mjs';
+
 export function headers() {
-  const myAccessToken = localStorage.getItem("myAccessToken");
+  const accessToken = localStorage.getItem('myAccessToken');
 
   return {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${myAccessToken}`,
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${accessToken}`,
   };
 }
 

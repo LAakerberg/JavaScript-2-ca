@@ -13,6 +13,9 @@ const apiGetProfile = 'api/v1/social/profiles';
  * @param getProfiles calls the API with profiles information
  */
 
+const action = 'post/';
+const method = 'get';
+
 async function getProfiles(url) {
   try {
     const myAccessToken = localStorage.getItem('myAccessToken');

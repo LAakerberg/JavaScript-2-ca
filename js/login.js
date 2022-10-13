@@ -2,7 +2,8 @@ const emailForm = document.querySelector('#floatingInput');
 const pwdForm = document.querySelector('#floatingPassword');
 const formLogin = document.querySelector('#form');
 
-import { redirect } from './function.js';
+import { redirect } from './function.mjs';
+import * as storage from './api/storage/index.mjs';
 
 /**
  * API calls
@@ -41,9 +42,10 @@ formLogin.addEventListener('submit', (e) => {
       const json = await response.json();
 
       const accessToken = json.accessToken;
-      const myAccessToken = accessToken;
 
-      localStorage.setItem('myAccessToken', myAccessToken);
+      storage.save('token', accessToken);
+
+      localStorage.setItem('myAccessToken', accessToken);
 
       localStorage.setItem('name', json.name);
       localStorage.setItem('avatar', json.avatar);

@@ -5,13 +5,13 @@ export function profileData(data) {
   const { name, _count, avatar } = data;
 }
 
-/* import { deletePost } from '../posts/deletePost'; */
+// import { deletePost } from '../posts/deletePost';
 
 import { apiUrl } from '../auth/apiBase.js';
 import { apiGetProfile } from '../auth/apiBase.js';
 import { authFetch } from '../auth/authFetch.js';
 import { headers } from '../auth/authFetch.js';
-import { logOutUser } from '../../function.js';
+import { logOutUser } from '../../function.mjs';
 
 const method = 'GET';
 
@@ -40,7 +40,7 @@ async function fetchProfile(url) {
     const profileData = profile;
     const profilePosted = profile.posts;
     console.log(profilePosted);
-    console.log(profilePosted[0].created);
+    // console.log(profilePosted[0].created);
 
     for (let i = 0; i < profilePosted.length; i++) {
       /*       if (profilePosted[i].media === '') {

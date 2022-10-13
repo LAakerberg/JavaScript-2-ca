@@ -9,15 +9,15 @@ const oldestPostFilter = document.querySelector('#oldestPost');
  * @param apiGetPosts is the API call to gets posts, imported from apiBase
  */
 
-import { apiUrl } from '../auth/apiBase.js';
-import { apiGetPosts } from '../auth/apiBase.js';
-import { sortCreatedDesc } from '../auth/apiBase.js';
-import { sortCreatedAsc } from '../auth/apiBase.js';
+import { apiUrl } from '../js/api/auth/apiBase.js';
+import { apiGetPosts } from '../js/api/auth/apiBase.js';
+import { sortCreatedDesc } from '../js/api/auth/apiBase.js';
+import { sortCreatedAsc } from '../js/api/auth/apiBase.js';
 
 // Import auth for the API call incl the local storage token.
 
-import { authFetch } from '../auth/authFetch.js';
-import { headers } from '../auth/authFetch.js';
+import { authFetch } from '../js/api/auth/authFetch.js';
+import { headers } from '../js/api/auth/authFetch.js';
 
 const method = 'GET';
 

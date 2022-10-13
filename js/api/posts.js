@@ -13,7 +13,7 @@ import { apiUrl } from './auth/apiBase.js';
 import { apiGetPosts } from './auth/apiBase.js';
 import { sortCreatedDesc } from './auth/apiBase.js';
 import { sortCreatedAsc } from './auth/apiBase.js';
-import { logOutUser } from '../function.js';
+import { logOutUser } from '../function.mjs';
 
 // Import auth for the API call incl the local storage token.
 
@@ -24,7 +24,7 @@ const method = 'GET';
 
 export async function requestPost(url) {
   try {
-    const responsePosts = await authFetch(
+    const response = await authFetch(
       url,
       {
         method,
@@ -32,20 +32,28 @@ export async function requestPost(url) {
       headers()
     );
 
-    const json = await responsePosts.json();
+    const json = await response.json();
     const requestedPosts = json;
+
+    console.log(response);
+    console.log(json);
+    console.log(requestedPosts);
 
     // IF Statement checks if the response.ok is return true
 
-    if (responsePosts.ok === true) {
+    if (response.ok === true) {
       for (let i = 0; i < requestedPosts.length; i++) {
         // Gets the date from the post and format it to new format
         const dateRequested = new Date(`${requestedPosts[i].created}`);
-        const month = dateRequested.getMonth() + 1;
-        const date = dateRequested.getDate(2, `0`);
-        const year = dateRequested.getFullYear();
-
-        const dateCreated = date + `.` + month + `.` + year;
+        const dateFormatted = {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+        };
+        const newFormat = dateRequested.toLocaleDateString(
+          'en-GB',
+          dateFormatted
+        );
 
         const postId = requestedPosts[i].id;
         const postAuthor = requestedPosts[i].author.name;
@@ -63,7 +71,7 @@ export async function requestPost(url) {
             <div class="w-auto p-1 text-dark profileImg text-break"><img class="profile-thumbnail" src="${json[i].author.avatar}" alt="Picture of ${postAuthor}" /></div>
             <div class="w-auto d-flex flex-column flex-fill">
               <div class="w-auto p-1 text-dark flex-fill author-name text-break">${postAuthor}</div>
-              <div class="w-auto p-1 text-dark date-posted">${dateCreated}</div>
+              <div class="w-auto p-1 text-dark date-posted">${newFormat}</div>
             </div>
           </div>
             <div class="w-auto card-body text-dark">
@@ -76,15 +84,17 @@ export async function requestPost(url) {
         postsBox.innerHTML += `${implanted}`;
 
         newestPostFilter.onclick = function () {
-          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=10`;
+          const newAPI = `${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=20`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(newAPI);
+          console.log(newAPI);
         };
 
         oldestPostFilter.onclick = function () {
-          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=10`;
+          const oldAPI = `${apiUrl}${apiGetPosts}${sortCreatedAsc}&_author=true&limit=20`;
           postsBox.innerHTML = `${implanted}`;
           requestPost(oldAPI);
+          console.log(oldAPI);
         };
       }
     } else {
@@ -101,6 +111,6 @@ export async function requestPost(url) {
   }
 }
 
-requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=80`);
+requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=5`);
 
 logOutUser();

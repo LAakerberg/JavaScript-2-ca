@@ -1,4 +1,4 @@
-import { requestPost } from './posts/getPosts.js';
+import { requestPost } from '../js/api/posts/getPosts.js';
 
 import { apiUrl } from './apiBase.js';
 import { apiGetPosts } from './apiBase.js';
