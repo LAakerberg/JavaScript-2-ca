@@ -3,8 +3,8 @@ export const API_HOST = `https://nf-api.onrender.com/`;
 export const API_SOCIAL_MEDIA = `api/v1/social/posts/`;
 export const API_PROFILE_DATA = `api/v1/social`;
 
-export const API_SOCIAL_URL = `${API_HOST}${API_SOCIAL_MEDIA}`; // Get posts and specifics post by ID
-export const API_PROFILE_URL = `${API_HOST}${API_PROFILE_DATA}`; // Get profile information + Login token + Register form
+export const API_SOCIAL_URL = `${API_HOST}${API_SOCIAL_MEDIA}`; // Get posts and specifics post by ID `https://nf-api.onrender.com/api/v1/social/posts/`;
+export const API_PROFILE_URL = `${API_HOST}${API_PROFILE_DATA}`; // Get profile information + Login token + Register form `https://nf-api.onrender.com/api/v1/social`;
 
 // Base URL
 export const apiUrl = `https://nf-api.onrender.com/`;
