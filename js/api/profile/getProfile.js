@@ -52,6 +52,8 @@ async function fetchProfile(url) {
         console.log(profilePosted[2].media);
       } */
 
+      const postId = profilePosted[i].id;
+
       const dateRequested = new Date(profilePosted[i].created);
       const month = dateRequested.getMonth() + 1;
       const date = dateRequested.getDate(2, `0`);
@@ -68,7 +70,7 @@ async function fetchProfile(url) {
                   <div class="w-auto p-1 text-dark author-name">${profilePosted[i].owner}</div>
                   <div class="w-auto p-1 text-darkpurple date-posted">${dateCreated}</div>
                 </div>
-                <div><button><span class="material-symbols-outlined edit-icon">delete </span></button></div>
+                <a class="post-link p-1 m-1" href="/pages/posts/details/edit/?id=${postId}"><div><button><span class="material-symbols-outlined edit-icon">edit </span></button></div></a>
               </div>
                 <div class="w-auto card-body text-dark">
                   <h4 class="w-auto card-title">${profilePosted[i].title}</h4>
