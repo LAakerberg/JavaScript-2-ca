@@ -106,9 +106,11 @@ btnClose.onclick = function () {
 
 btnDelete.onclick = function () {
   deletePost(id);
-  alert('The post was successful deleted, you will now be redirected to start');
+  alert(
+    'The post was successful deleted, you will now be redirected back to profile page'
+  );
   setTimeout(() => {
-    window.location.replace('/pages');
+    window.location.replace('/pages/profile/');
   }, 2000);
 };
 
