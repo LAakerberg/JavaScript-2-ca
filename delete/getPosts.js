@@ -16,8 +16,8 @@ import { sortCreatedAsc } from '../js/api/auth/apiBase.js';
 
 // Import auth for the API call incl the local storage token.
 
-import { authFetch } from '../js/api/auth/authFetch.js';
-import { headers } from '../js/api/auth/authFetch.js';
+import { authFetch } from '../js/api/auth/authFetch.mjs';
+import { headers } from '../js/api/auth/authFetch.mjs';
 
 const method = 'GET';
 

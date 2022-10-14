@@ -11444,7 +11444,7 @@ button:hover {
 /*
  Specific profile page
 */
-.profil-pic {
+.profile-pic {
   width: 100%;
   margin-top: 10px;
 }
@@ -11527,6 +11527,15 @@ Show thumbnails of profiles on login screen
 
 .profileImg {
   max-width: 110px;
+}
+
+.title-container {
+  min-height: 50px;
+}
+
+.post-footer {
+  max-height: 74px;
+  width: 100%;
 }
 
 .small-postcard {
