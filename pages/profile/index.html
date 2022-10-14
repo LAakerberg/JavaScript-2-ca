@@ -83,7 +83,7 @@
     <div id="profile-img" class="w-100"></div>
     <div class="p-2 bd-highlight align-items-center justify-content-center">
       <div class="border">
-        <h3>Description</h3>
+        <div id="profile-stats"></div>
       </div>
     </div>
 </div>
@@ -99,7 +99,6 @@
 </div>
 <!-- Create post-->
 <div class="container-fluid create-post-with">
-<!---->
 <div
 class="border border-lightpurple rounded d-flex justify-content-center container-sm form-width bg-darkpurple"
 >
@@ -135,9 +134,8 @@ class="border border-lightpurple rounded d-flex justify-content-center container
 </form>
 </div>
 </div>
-<!---->
 </div>
-
+<!---->
   </div>
 </div>
     </main>
@@ -174,7 +172,8 @@ class="border border-lightpurple rounded d-flex justify-content-center container
       </div>
     </footer>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/api/index.mjs" type="module"></script>
     <script src="/js/api/posts/createPost.js" type="module"></script>
-    <script src="/js/api/profile/getProfile.js" type="module"></script>
+<!--     <script src="/js/api/profile/getProfile.js" type="module"></script> -->
   </body>
 </html>
