@@ -6,33 +6,35 @@ const profileBox = document.querySelector('#profiles');
  * @param apiLogin is the API call to login auth
  */
 const apiUrl = 'https://nf-api.onrender.com/';
-const apiGetProfile = 'api/v1/social/profiles';
+const apiGetProfile = 'api/v1/social/profiles/';
 
 /**
  *
  * @param getProfiles calls the API with profiles information
  */
 
-const action = 'post/';
-const method = 'get';
+import { authFetch } from './auth/authFetch.mjs';
+import { headers } from './auth/authFetch.mjs';
 
-async function getProfiles(url) {
+const method = 'GET';
+
+export async function getProfiles(url) {
   try {
-    const myAccessToken = localStorage.getItem('myAccessToken');
-    const getProfilesData = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${myAccessToken}`,
+    const response = await authFetch(
+      url,
+      {
+        method,
       },
-    };
-    const responseProfile = await fetch(url, getProfilesData);
-    const json = await responseProfile.json();
+      headers()
+    );
+    const json = await response.json();
     const requestedProfiles = json;
+    console.log(response);
+    console.log(requestedProfiles);
 
     // IF Statement checks if the response.ok is return true
 
-    if (responseProfile.ok === true) {
+    if (response.ok === true) {
       for (let i = 0; i < requestedProfiles.length; i++) {
         // IF statement will continue if the avatar URL is missing, could still fail if the picture is not allowed
         if (requestedProfiles[i].avatar == '') {

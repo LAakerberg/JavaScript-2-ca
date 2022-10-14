@@ -1,13 +1,6 @@
 const postsBox = document.querySelector('#posts');
-const searchForPost = document.querySelector('#searchPost');
 const newestPostFilter = document.querySelector('#newestPost');
 const oldestPostFilter = document.querySelector('#oldestPost');
-
-/**
- * API calls
- * @param apiURL is the base API base call imported from apiBase
- * @param apiGetPosts is the API call to gets posts, imported from apiBase
- */
 
 import { apiUrl } from './auth/apiBase.js';
 import { apiGetPosts } from './auth/apiBase.js';
@@ -17,8 +10,8 @@ import { logOutUser } from '../function.mjs';
 
 // Import auth for the API call incl the local storage token.
 
-import { authFetch } from './auth/authFetch.js';
-import { headers } from './auth/authFetch.js';
+import { authFetch } from './auth/authFetch.mjs';
+import { headers } from './auth/authFetch.mjs';
 
 const method = 'GET';
 
@@ -34,10 +27,6 @@ export async function requestPost(url) {
 
     const json = await response.json();
     const requestedPosts = json;
-
-    console.log(response);
-    console.log(json);
-    console.log(requestedPosts);
 
     // IF Statement checks if the response.ok is return true
 
@@ -111,6 +100,6 @@ export async function requestPost(url) {
   }
 }
 
-requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=5`);
+requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=30`);
 
 logOutUser();

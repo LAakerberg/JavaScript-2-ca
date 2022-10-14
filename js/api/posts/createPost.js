@@ -17,7 +17,7 @@ const apiCreatePost = 'api/v1/social/posts';
 postForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  // Get the value from the login form on login.html page
+  // Get the value from the login form on login.html pag
 
   const createdPost = {
     title: subjectPost.value,

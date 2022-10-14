@@ -4,12 +4,11 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get('id');
 
-import { authFetch } from '../auth/authFetch.js';
+import { authFetch } from '../auth/authFetch.mjs';
 
 const apiUrl = 'https://nf-api.onrender.com/';
 const apiDeletePost = `api/v1/social/posts/` + id;
 
-const action = '/posts';
 const method = 'delete';
 
 // async function for the API call to login.
