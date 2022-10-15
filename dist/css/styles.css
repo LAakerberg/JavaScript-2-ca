@@ -24,6 +24,10 @@ body {
   transition: 0.6s;
 }
 
+.card:hover {
+  border: 1px solid rgb(88, 83, 104);
+}
+
 header,
 main,
 footer {

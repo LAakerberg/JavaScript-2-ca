@@ -59,6 +59,11 @@ export async function uniquePost(url) {
     const timeCreated = hours + `:` + minutes;
 
     if (response.ok === true) {
+      if (requestedPosts.author.avatar === '') {
+        requestedPosts.author.avatar =
+          'https://static.thenounproject.com/png/2884221-200.png';
+      }
+
       postTitle.innerHTML += `
         <h2 class="card-title title-text text-white title-container text-center">${requestedPosts.title}</h2>
         `;

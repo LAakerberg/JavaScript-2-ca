@@ -7,7 +7,11 @@ const postTitle = document.querySelector('#post-top');
 const mediaClass = document.querySelector('#media');
 const editPost = document.querySelector('#edit-post');
 
+import { API_SOCIAL_URL } from '../../auth/apiBase.mjs';
+import { authFetch } from '../../auth/authFetch.mjs';
+import { headers } from '../../auth/authFetch.mjs';
 import { deletePost } from '../deletePost.js';
+import { redirect } from '../../../function.mjs';
 
 /**
  * API calls
@@ -17,12 +21,6 @@ import { deletePost } from '../deletePost.js';
 
 const author = `_author`;
 const tru = `=true`;
-
-const apiUrl = 'https://nf-api.onrender.com/';
-const apiGetPosts = `api/v1/social/posts/` + id + `?` + author + tru;
-
-import { authFetch } from '../../auth/authFetch.mjs';
-import { headers } from '../../auth/authFetch.mjs';
 
 const method = 'GET';
 
@@ -39,22 +37,13 @@ export async function uniquePost(url) {
     const json = await response.json();
     const requestedPosts = json;
 
-    const dateTime = requestedPosts.created;
-
-    // Gets the date from the post and format it to new format
-    const dateRequested = new Date(dateTime);
-    const month = dateRequested.getMonth() + 1;
-    const date = dateRequested.getDate(2, `0`);
-    const year = dateRequested.getFullYear();
-
-    const dateCreated = date + `.` + month + `.` + year;
-
-    // Gets the time from the post and format it to new format
-    const timeRequested = new Date(dateTime);
-    const hours = timeRequested.getHours();
-    const minutes = timeRequested.getMinutes();
-
-    const timeCreated = hours + `:` + minutes;
+    const dateRequested = new Date(`${requestedPosts.created}`);
+    const dateFormatted = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    };
+    const newFormat = dateRequested.toLocaleDateString('en-GB', dateFormatted);
 
     if (response.ok === true) {
       postTitle.innerHTML += `
@@ -72,11 +61,12 @@ export async function uniquePost(url) {
             </div>
           </div>
           <div class="w-100"><span class="card-text">Posted by: ${requestedPosts.author.name}</span></div>
-          <div class="w-100"><span class="card-text">Created: ${dateCreated} ${timeCreated}</span></div>
+          <div class="w-100"><span class="card-text">Created: ${newFormat}</span></div>
           <div class="w-100"><span class="card-text">Tags: ${requestedPosts.tags}</span></div>
           
           `;
-
+      console.log(response);
+      console.log(response.ok);
       console.log(requestedPosts);
     } else {
       console.log('Could load data');
@@ -107,12 +97,7 @@ btnClose.onclick = function () {
 
 btnDelete.onclick = function () {
   deletePost(id);
-  alert(
-    'The post was successful deleted, you will now be redirected back to profile page'
-  );
-  setTimeout(() => {
-    window.location.replace('/pages/profile/');
-  }, 2000);
+  redirect();
 };
 
 window.onclick = function (event) {
@@ -120,6 +105,6 @@ window.onclick = function (event) {
     modal.style.display = 'none';
   }
 };
-uniquePost(`${apiUrl}${apiGetPosts}`);
+uniquePost(API_SOCIAL_URL + id + `?` + author + tru);
 
 // deletePost(2039);

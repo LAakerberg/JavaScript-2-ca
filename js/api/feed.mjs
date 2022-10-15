@@ -1,17 +1,7 @@
 const profileBox = document.querySelector('#profiles');
 
-/**
- * API calls
- * @param apiURL is the base API call
- * @param apiLogin is the API call to login auth
- */
 const apiUrl = 'https://nf-api.onrender.com/';
 const apiGetProfile = 'api/v1/social/profiles/';
-
-/**
- *
- * @param getProfiles calls the API with profiles information
- */
 
 import { authFetch } from './auth/authFetch.mjs';
 import { headers } from './auth/authFetch.mjs';
@@ -36,6 +26,10 @@ export async function getProfiles(url) {
 
     if (response.ok === true) {
       for (let i = 0; i < requestedProfiles.length; i++) {
+        if (requestedProfiles[i].avatar === '') {
+          requestedProfiles[i].avatar =
+            'https://static.thenounproject.com/png/2884221-200.png';
+        }
         // IF statement will continue if the avatar URL is missing, could still fail if the picture is not allowed
         if (requestedProfiles[i].avatar == '') {
           // Skip profile´s without avatar URL
@@ -67,4 +61,4 @@ export async function getProfiles(url) {
   }
 }
 
-getProfiles(`${apiUrl}${apiGetProfile}`);
+getProfiles(`${apiUrl}${apiGetProfile}?limit=50`);

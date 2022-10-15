@@ -24,8 +24,8 @@ export const reactions = `_reactions`;
 export const tru = `=true`;
 //
 // Sort by date or title
-export const sortCreatedDesc = `?sort=created&sortOrder=desc`;
-export const sortCreatedAsc = `?sort=created&sortOrder=asc`;
+export const sortCreatedDesc = `sort=created&sortOrder=desc`;
+export const sortCreatedAsc = `sort=created&sortOrder=asc`;
 export const sortTitleDesc = `?sort=title&sortOrder=desc`;
 export const sortTitleAsc = `?sort=title&sortOrder=asc`;
 

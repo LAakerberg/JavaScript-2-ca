@@ -39,6 +39,13 @@ export async function fetchProfile(url) {
     console.log(profileData);
     console.log(profilePosted);
 
+    if (localStorage.getItem('avatar') === '') {
+      localStorage.setItem(
+        'avatar',
+        'https://static.thenounproject.com/png/2884221-200.png'
+      );
+    }
+
     profileImage.innerHTML += `<img src="${profileAvatar}" alt="Profile picture of ${profileName}" class="profile-pic rounded" />`;
     profileStats.innerHTML += `<div>Total posts: ${profileData.posts} Following: ${profileData.following} Followers: ${profileData.followers}</div>`;
 
@@ -76,6 +83,7 @@ export async function fetchProfile(url) {
                         <figcaption>Picture uploaded by: ${profilePosted[i].owner}</figcaption>
                     </figure>
                     </div>
+                    <div>Tags: ${profilePosted[i].tags}</div>
                 </div>
                 <div class="w-auto card-body text-dark">Comment</div>
             </div>
@@ -94,7 +102,11 @@ export async function fetchProfile(url) {
 }
 
 fetchProfile(
-  `${apiUrl}${apiGetProfile}/${profileName}${sortCreatedDesc}&_posts=true`
+  `${apiUrl}${apiGetProfile}/${profileName}?_posts=true&${sortCreatedDesc}`
+);
+
+console.log(
+  `${apiUrl}${apiGetProfile}/${profileName}?_posts=true&${sortCreatedAsc}`
 );
 
 logOutUser();

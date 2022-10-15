@@ -6,7 +6,6 @@ import { apiUrl } from './auth/apiBase.js';
 import { apiGetPosts } from './auth/apiBase.js';
 import { sortCreatedDesc } from './auth/apiBase.js';
 import { sortCreatedAsc } from './auth/apiBase.js';
-import { logOutUser } from '../function.mjs';
 
 // Import auth for the API call incl the local storage token.
 
@@ -101,5 +100,3 @@ export async function requestPost(url) {
 }
 
 requestPost(`${apiUrl}${apiGetPosts}${sortCreatedDesc}&_author=true&limit=30`);
-
-logOutUser();

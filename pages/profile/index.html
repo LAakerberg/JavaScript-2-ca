@@ -55,10 +55,10 @@
                 class="form-control"
                 type="search"
                 placeholder="Search"
-                aria-label="Search"
+                aria-label="Search" readonly 
               />
             </form>
-            <div class="ps-2 pt-2 pb-2"><button class="btn btn-dark border-darkgrey" ><span class="material-symbols-outlined">
+            <div class="ps-2 pt-2 pb-2"><button class="btn btn-dark border-darkgrey" disabled><span class="material-symbols-outlined">
               search
               </span></button></div>
           </div>
@@ -113,12 +113,12 @@ class="border border-lightpurple rounded d-flex justify-content-center container
       </div>
 
       <div class="form-floating py-1">
-        <input type="text" class="form-control" id="tagsPost" name="tags" placeholder="Add your tags" />
+        <input type="text" class="form-control" id="tagsPost" name="tags" placeholder="Add your tags" required/>
         <label for="floatingInput">Tags</label>
       </div>
 
       <div class="form-floating py-1">
-        <input type="url" class="form-control" id="mediaPost" name="media" placeholder="Add your media" />
+        <input type="url" class="form-control" id="mediaPost" name="media" placeholder="Add your media" required/>
         <label for="floatingInput">Media</label>
       </div>
 
@@ -172,8 +172,8 @@ class="border border-lightpurple rounded d-flex justify-content-center container
       </div>
     </footer>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/api/index.mjs" type="module"></script>
-    <script src="/js/api/posts/createPost.js" type="module"></script>
+    <script src="/js/api/profile/index.mjs" type="module"></script>
+<!--     <script src="/js/api/posts/createPost.js" type="module"></script> -->
 <!--     <script src="/js/api/profile/getProfile.js" type="module"></script> -->
   </body>
 </html>

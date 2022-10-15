@@ -6,6 +6,8 @@ const mediaPost = document.querySelector('#mediaPost');
 const descriptionPost = document.querySelector('#descriptionPost');
 const postForm = document.querySelector('#post-form');
 
+import { redirect } from '../../function.mjs';
+
 /**
  * API calls
  * @param apiURL is the base API call
@@ -14,39 +16,47 @@ const postForm = document.querySelector('#post-form');
 const apiUrl = 'https://nf-api.onrender.com/';
 const apiCreatePost = 'api/v1/social/posts';
 
-postForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+export function sendPostToAPI() {
+  postForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  // Get the value from the login form on login.html pag
+    // Get the value from the login form on login.html pag
 
-  const createdPost = {
-    title: subjectPost.value,
-    body: descriptionPost.value,
-    tags: [`${tagsPost.value}`],
-    media: mediaPost.value,
-  };
+    const createdPost = {
+      title: subjectPost.value,
+      body: descriptionPost.value,
+      tags: [`${tagsPost.value}`],
+      media: mediaPost.value,
+    };
 
-  // async function for the API call to login.
-  async function sendPost(apiUrl, data) {
-    try {
-      const myAccessToken = localStorage.getItem('myAccessToken');
-      const postData = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${myAccessToken}`,
-        },
-        body: JSON.stringify(data),
-      };
-      const response = await fetch(apiUrl, postData);
-      const json = await response.json();
-      console.log(response.ok);
-      console.log(json);
-      return json;
-    } catch (error) {
-      console.log(error);
-    } finally {
+    // async function for the API call to login.
+    async function sendPost(apiUrl, data) {
+      try {
+        const myAccessToken = localStorage.getItem('myAccessToken');
+        const postData = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${myAccessToken}`,
+          },
+          body: JSON.stringify(data),
+        };
+        const response = await fetch(apiUrl, postData);
+        const json = await response.json();
+
+        if (response.ok == true) {
+          redirect(response);
+        } else {
+          alert('An error have occurred');
+        }
+        console.log(response.ok);
+        console.log(json);
+        return json;
+      } catch (error) {
+        console.log(error);
+      } finally {
+      }
     }
-  }
-  sendPost(`${apiUrl}${apiCreatePost}`, createdPost);
-});
+    sendPost(`${apiUrl}${apiCreatePost}`, createdPost);
+  });
+}

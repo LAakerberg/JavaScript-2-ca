@@ -1,9 +1,7 @@
 import { getProfiles } from './feed.mjs'; // Request profiles that's is showing up on the sidebar
 
-import { requestPost } from './posts.js'; // Request latest post in the main feed
+import { requestPost } from './posts/getPosts.mjs';
 
-import { fetchProfile } from './profile/getProfile.js'; // Load data from Local storage and latest created posts.
+import { logOutUser } from '../function.mjs';
 
-// import { uniquePost } from './posts/details.mjs';
-
-// import { postIsCreated } from './posts/createPost.js';
+logOutUser();
