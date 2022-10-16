@@ -18,7 +18,7 @@ Building of an social media app during my course assignment in JavaScript 2
 - - Specific/detailed post page by ID.
 - - Search function, search by username / post title & body text. (Limit to the last 50 posts)
 
-## Features to be added or changes next
+## Features to be added
 
 - - Adding an specific profile page for other users
 - - Edit profile page
