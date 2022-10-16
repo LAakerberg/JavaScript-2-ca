@@ -3,8 +3,13 @@ export function renderPost(postsToRender) {
 
   postsBox.innerHTML = '';
 
+  /*
+  The posts that's is requested from getPosts will be rendered here so the content
+  will be search able. It's will also be adding the posts to the main page.
+  */
   postsToRender.forEach(function (requestedPosts) {
     const dateRequested = new Date(`${requestedPosts.created}`);
+    // Formats the date from the request to be more user friendly and readable
     const dateFormatted = {
       year: 'numeric',
       month: 'numeric',
@@ -25,9 +30,9 @@ export function renderPost(postsToRender) {
       <div class="w-auto p-1 text-dark flex-fill author-name text-break">${requestedPosts.author.name}</div>
       <div class="w-auto p-1 text-dark date-posted">${newFormat}</div>
     </div>
-    <div class="btn btn-darkpurple"><span class="material-symbols-outlined">
+    <div class=""><button class="icon"><span class="material-symbols-outlined icon p-2">
     read_more
-    </span></div>
+    </span></button></div>
   </div>
     <div class="w-auto card-body text-dark">
       <h4 class="w-auto card-title text-break">${requestedPosts.title}</h4>

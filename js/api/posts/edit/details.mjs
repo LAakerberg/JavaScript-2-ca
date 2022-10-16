@@ -11,19 +11,20 @@ import { API_SOCIAL_URL } from '../../auth/apiBase.mjs';
 import { authFetch } from '../../auth/authFetch.mjs';
 import { headers } from '../../auth/authFetch.mjs';
 import { deletePost } from '../deletePost.js';
-import { redirect } from '../../../function.mjs';
-
-/**
- * API calls
- * @param apiURL is the base API call
- * @param apiSpecificPost is the API call to login auth
- */
+import { logOutUser, redirectDelete } from '../../../function.mjs';
+import { errorMessage } from '../../../components/message.mjs';
 
 const author = `_author`;
 const tru = `=true`;
 
 const method = 'GET';
 
+/**
+ * This functions call the API the get the unique post that's is requested by the ID
+ * to an specific/detailed page. Within this page the user have access to edit/delete the posts
+ * but only if you are the owner.
+ * @param {url} url insert the API link
+ */
 export async function uniquePost(url) {
   try {
     const response = await authFetch(
@@ -36,8 +37,9 @@ export async function uniquePost(url) {
 
     const json = await response.json();
     const requestedPosts = json;
-
+    // Requests the date/time from the JSON
     const dateRequested = new Date(`${requestedPosts.created}`);
+    // Format the date to an more user friendly and readable date.
     const dateFormatted = {
       year: 'numeric',
       month: 'numeric',
@@ -65,20 +67,17 @@ export async function uniquePost(url) {
           <div class="w-100"><span class="card-text">Tags: ${requestedPosts.tags}</span></div>
           
           `;
-      console.log(response);
-      console.log(response.ok);
-      console.log(requestedPosts);
     } else {
       console.log('Could load data');
-      postsBox.innerHTML += `
-  
-      <div class="error-card col-1 border border-danger rounded-1 text-center"><p>Could not find this post!!!</p>
-      </div>
-      
-      `;
+      postsBox.innerHTML += errorMessage(
+        'Could not load this post from the server, please try again!'
+      );
     }
   } catch (error) {
     console.log(error);
+    postsBox.innerHTML += errorMessage(
+      'Could not find this post, please try again!'
+    );
   }
 }
 
@@ -87,19 +86,31 @@ const btn = document.querySelector('#open-delete');
 const btnClose = document.querySelector('#btn-close');
 const btnDelete = document.querySelector('#btn-delete');
 
+/**
+ * This function will open the modal for be able to edit/delete post
+ */
 btn.onclick = function () {
   modal.style.display = 'block';
 };
 
+/**
+ * This function will close the modal if the Cancel button is clicked
+ */
 btnClose.onclick = function () {
   modal.style.display = 'none';
 };
 
+/**
+ * This is a delete button that's will delete to post.
+ */
 btnDelete.onclick = function () {
   deletePost(id);
-  redirect();
+  redirectDelete();
 };
 
+/**
+ * This function will close the modal if the user click outside the modal
+ */
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = 'none';
@@ -107,4 +118,4 @@ window.onclick = function (event) {
 };
 uniquePost(API_SOCIAL_URL + id + `?` + author + tru);
 
-// deletePost(2039);
+logOutUser();

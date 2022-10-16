@@ -1,12 +1,12 @@
-// export async function createPost(postData) {}
-
 const subjectPost = document.querySelector('#subjectPost');
 const tagsPost = document.querySelector('#tagsPost');
 const mediaPost = document.querySelector('#mediaPost');
 const descriptionPost = document.querySelector('#descriptionPost');
 const postForm = document.querySelector('#post-form');
+const displayError = document.querySelector('#error');
 
 import { redirect } from '../../function.mjs';
+import { errorMessage } from '../../components/message.mjs';
 
 /**
  * API calls
@@ -29,7 +29,13 @@ export function sendPostToAPI() {
       media: mediaPost.value,
     };
 
-    // async function for the API call to login.
+    /**
+     * This function will send the values in the form for creations of uniques posts
+     * to the API.
+     * @param {*} apiUrl inserts the API link
+     * @param {*} data Inserts the data/values from the form
+     * @returns
+     */
     async function sendPost(apiUrl, data) {
       try {
         const myAccessToken = localStorage.getItem('myAccessToken');
@@ -44,16 +50,14 @@ export function sendPostToAPI() {
         const response = await fetch(apiUrl, postData);
         const json = await response.json();
 
-        if (response.ok == true) {
-          redirect(response);
-        } else {
-          alert('An error have occurred');
-        }
-        console.log(response.ok);
-        console.log(json);
+        // Redirect the user when the post is created.
+        redirect(response);
+
         return json;
       } catch (error) {
-        console.log(error);
+        displayError.innerHTML = errorMessage(
+          'The post was not created, please try again later!'
+        );
       } finally {
       }
     }

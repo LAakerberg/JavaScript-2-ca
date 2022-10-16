@@ -1,12 +1,18 @@
 const profileBox = document.querySelector('#profiles');
 
-const apiUrl = 'https://nf-api.onrender.com/';
-const apiGetProfile = 'api/v1/social/profiles/';
-
+import { API_PROFILE_URL } from './auth/apiBase.mjs';
 import { authFetch } from './auth/authFetch.mjs';
 import { headers } from './auth/authFetch.mjs';
+import { errorMessage } from '../components/message.mjs';
 
 const method = 'GET';
+
+/**
+ * This function will make a API call to fetch the first 50 user/profile with name and avatar image
+ * on the start page.
+ * @param {*} url the API link need to be inserted
+ * @return return the 50 first user/profiles in the sidebar
+ */
 
 export async function getProfiles(url) {
   try {
@@ -17,7 +23,7 @@ export async function getProfiles(url) {
       },
       headers()
     );
-    const json = await response.json();
+    const json = await response.json(API_PROFILE_URL);
     const requestedProfiles = json;
     console.log(response);
     console.log(requestedProfiles);
@@ -30,16 +36,11 @@ export async function getProfiles(url) {
           requestedProfiles[i].avatar =
             'https://static.thenounproject.com/png/2884221-200.png';
         }
-        // IF statement will continue if the avatar URL is missing, could still fail if the picture is not allowed
-        if (requestedProfiles[i].avatar == '') {
-          // Skip profile´s without avatar URL
-          continue;
-        }
         const authorName = requestedProfiles[i].name;
         const authorAvatar = requestedProfiles[i].avatar;
         profileBox.innerHTML += `
 
-        <div class="thumbnail-card col-1">
+        <div class="thumbnail-card col-1 text-break">
                 <div class=""><img src="${authorAvatar}" class="thumbnail-profile-img" alt="Profile picture of ${authorName}"></div>
                 <div class="card-body"><p class="card-title author-name">${authorName}</p></div>
         </div>
@@ -47,18 +48,15 @@ export async function getProfiles(url) {
         `;
       }
     } else {
-      console.log('Could load data');
-      profileBox.innerHTML += `
-  
-      <div class="error-card col-1 border border-danger rounded-1 text-center"><p>Could not load the data!!</p>
-      </div>
-      
-      `;
+      profileBox.innerHTML = errorMessage(
+        'Not able to load the user/profile content. Please try again later!'
+      );
     }
   } catch (error) {
-    console.log(error);
-    console.log('Could load the API');
+    profileBox.innerHTML = errorMessage(
+      'Not able to load the user/profile content. Please try again later!'
+    );
   }
 }
 
-getProfiles(`${apiUrl}${apiGetProfile}?limit=50`);
+getProfiles(`${API_PROFILE_URL}?limit=50`);

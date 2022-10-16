@@ -2,19 +2,19 @@ const allProfilePosts = document.querySelector('#profile-post');
 const profileImage = document.querySelector('#profile-img');
 const profileStats = document.querySelector('#profile-stats');
 
-export function profileData(data) {
+/* export function profileData(data) {
   const { name, _count, avatar } = data;
-}
+} */
 
 // import { deletePost } from '../posts/deletePost';
 
-import { apiUrl } from '../auth/apiBase.js';
-import { apiGetProfile } from '../auth/apiBase.js';
+import { API_PROFILE_URL } from '../auth/apiBase.mjs';
 import { sortCreatedDesc } from '../auth/apiBase.mjs';
 import { sortCreatedAsc } from '../auth/apiBase.mjs';
 import { authFetch } from '../auth/authFetch.mjs';
 import { headers } from '../auth/authFetch.mjs';
 import { logOutUser } from '../../function.mjs';
+import { errorMessage } from '../../components/message.mjs';
 
 const method = 'GET';
 
@@ -22,6 +22,12 @@ const profileName = localStorage.getItem('name');
 const profileAvatar = localStorage.getItem('avatar');
 const profileEmail = localStorage.getItem('email');
 
+/**
+ * This function call the API to include the posts data from the user/profile
+ * It's will also include the data from localStorage instead of call the information.
+ * Data as username, user avatar and email. Email is not in use for now.
+ * @param {*} url The API will be inserted
+ */
 export async function fetchProfile(url) {
   try {
     const response = await authFetch(
@@ -32,12 +38,10 @@ export async function fetchProfile(url) {
       headers()
     );
 
-    const json = await response.json();
+    const json = await response.json(API_PROFILE_URL);
     const profile = json;
     const profileData = profile._count;
     const profilePosted = profile.posts;
-    console.log(profileData);
-    console.log(profilePosted);
 
     if (localStorage.getItem('avatar') === '') {
       localStorage.setItem(
@@ -47,7 +51,15 @@ export async function fetchProfile(url) {
     }
 
     profileImage.innerHTML += `<img src="${profileAvatar}" alt="Profile picture of ${profileName}" class="profile-pic rounded" />`;
-    profileStats.innerHTML += `<div>Total posts: ${profileData.posts} Following: ${profileData.following} Followers: ${profileData.followers}</div>`;
+    profileStats.innerHTML += `<div class="">
+    <span class="material-symbols-outlined text-dark p-2">
+    forum
+    </span>: ${profileData.posts} <span class="material-symbols-outlined text-dark p-2">
+    person
+    </span>: ${profileData.following} <span class="material-symbols-outlined text-dark p-2">
+    group
+    </span>: ${profileData.followers}
+    </div>`;
 
     for (let i = 0; i < profilePosted.length; i++) {
       const dateRequested = new Date(`${profilePosted[i].created}`);
@@ -72,10 +84,10 @@ export async function fetchProfile(url) {
                   <div class="w-auto p-1 text-dark author-name">${profilePosted[i].owner}</div>
                   <div class="w-auto p-1 text-darkpurple date-posted">${newFormat}</div>
                 </div>
-                <a class="post-link p-1 m-1" href="/pages/posts/details/edit/?id=${postId}"><div><button><span class="material-symbols-outlined edit-icon">edit </span></button></div></a>
+                <a class="post-link p-1 m-1" href="/pages/posts/details/edit/?id=${postId}"><div><button class="icon"><span class="material-symbols-outlined icon p-2">edit </span></button></div></a>
               </div>
                 <div class="w-auto card-body text-dark">
-                  <h4 class="w-auto card-title">${profilePosted[i].title}</h4>
+                  <h2 class="w-auto card-title">${profilePosted[i].title}</h2>
                   <div class="w-auto p-1 text-dark"><p class="card-text">${profilePosted[i].body}</p></div>
                   <div id="media" class="w-100 pt-5 text-center media">
                     <figure class="">
@@ -85,28 +97,19 @@ export async function fetchProfile(url) {
                     </div>
                     <div>Tags: ${profilePosted[i].tags}</div>
                 </div>
-                <div class="w-auto card-body text-dark">Comment</div>
+                <div class="w-auto card-body text-dark"></div>
             </div>
             `;
 
       allProfilePosts.innerHTML += `${implanted}`;
     }
-
-    /*         profilePosted.forEach(profilePost => {
-
-            console.log(profilePost)
-        }); */
   } catch (error) {
-    console.log(error);
+    allProfilePosts.innerHTML += errorMessage(
+      'Not able to load the profile and posts information. Please try again later!'
+    );
   }
 }
 
-fetchProfile(
-  `${apiUrl}${apiGetProfile}/${profileName}?_posts=true&${sortCreatedDesc}`
-);
-
-console.log(
-  `${apiUrl}${apiGetProfile}/${profileName}?_posts=true&${sortCreatedAsc}`
-);
+fetchProfile(`${API_PROFILE_URL}${profileName}?_posts=true&${sortCreatedDesc}`);
 
 logOutUser();

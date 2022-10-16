@@ -1,21 +1,24 @@
-const btnDelete = document.querySelector('#btn-delete');
-
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get('id');
 
+import { API_SOCIAL_URL } from '../auth/apiBase.mjs';
 import { authFetch } from '../auth/authFetch.mjs';
-
-const apiUrl = 'https://nf-api.onrender.com/';
-const apiDeletePost = `api/v1/social/posts/` + id;
 
 const method = 'delete';
 
 // async function for the API call to login.
+
+/**
+ * This function will delete the unique post by ID.
+ * The ID is collected by the request.
+ * @param {number} id
+ * @returns When the delete button is clicked the page will be reloading.
+ */
 export async function deletePost(id) {
   try {
     //
-    const deleteUrl = `${apiUrl}${apiDeletePost}`;
+    const deleteUrl = `${API_SOCIAL_URL}` + id;
     const response = await authFetch(deleteUrl, {
       method,
     });
@@ -25,7 +28,3 @@ export async function deletePost(id) {
     console.log(error);
   }
 }
-
-// deletePost(id);
-
-// console.log(deletePost);
