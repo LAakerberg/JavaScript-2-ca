@@ -8,12 +8,14 @@
     name="description"
     content="SoMe - Social media app for my profile"
   />
-    <title>SoMe One - Profile</title>
+    <title>SoMe One | My profile</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
   />
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="/js/api/profile/index.mjs" type="module" defer></script>
   </head>
   <body>
     <header>
@@ -85,6 +87,7 @@
     <div id="profile-img" class="w-100"></div>
     <div class="p-2 bd-highlight align-items-center justify-content-center">
       <div class="border">
+        <div id="profile-name"></div>
         <div id="profile-stats"></div>
       </div>
     </div>
@@ -151,32 +154,9 @@ class="border border-lightpurple rounded d-flex justify-content-center container
             <span class="mb-3 mb-md-0 text-muted">© 2022 SoMe One</span>
           </div>
 
-          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3">
-              <a class="text-muted" href="#"
-                ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#twitter"></use></svg
-              ></a>
-            </li>
-            <li class="ms-3">
-              <a class="text-muted" href="#"
-                ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#instagram"></use></svg
-              ></a>
-            </li>
-            <li class="ms-3">
-              <a class="text-muted" href="#"
-                ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#facebook"></use></svg
-              ></a>
-            </li>
-          </ul>
+
         </footer>
       </div>
     </footer>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/api/profile/index.mjs" type="module"></script>
-<!--     <script src="/js/api/posts/createPost.js" type="module"></script> -->
-<!--     <script src="/js/api/profile/getProfile.js" type="module"></script> -->
   </body>
 </html>

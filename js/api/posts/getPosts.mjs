@@ -1,3 +1,4 @@
+let title = document.querySelector('title');
 const postsBox = document.querySelector('#posts');
 const newestPostFilter = document.querySelector('#newestPost');
 const oldestPostFilter = document.querySelector('#oldestPost');
@@ -34,6 +35,8 @@ export async function requestPost(url) {
 
     const json = await response.json(API_SOCIAL_URL);
     const requestedPosts = json;
+
+    title.innerHTML = `SoMe One | Post feed`;
 
     // sends the request/json to filterPost and searchPost.
     renderPost(requestedPosts);

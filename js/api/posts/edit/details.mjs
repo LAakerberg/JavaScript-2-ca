@@ -1,3 +1,4 @@
+let title = document.querySelector('title');
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get('id');
@@ -47,6 +48,7 @@ export async function uniquePost(url) {
     };
     const newFormat = dateRequested.toLocaleDateString('en-GB', dateFormatted);
 
+    title.innerHTML = `SoMe One | Edit post: ${requestedPosts.title}`;
     if (response.ok === true) {
       postTitle.innerHTML += `
         <h2 class="card-title title-text text-white p-0">${requestedPosts.title}</h2>

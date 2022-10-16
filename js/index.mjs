@@ -1,7 +1,9 @@
-import { loginUser } from './login.mjs';
+// Import the login function in the index.mjs file
+import { loginUser } from './api/login/login.mjs';
 
 loginUser();
 
-import { registerUser } from './register.mjs';
+// Import the register function in the index.mjs file
+import { registerUser } from './api/login/register.mjs';
 
 registerUser();

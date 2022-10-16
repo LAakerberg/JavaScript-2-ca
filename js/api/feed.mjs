@@ -25,8 +25,6 @@ export async function getProfiles(url) {
     );
     const json = await response.json(API_PROFILE_URL);
     const requestedProfiles = json;
-    console.log(response);
-    console.log(requestedProfiles);
 
     // IF Statement checks if the response.ok is return true
 

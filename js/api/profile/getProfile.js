@@ -1,5 +1,7 @@
+let title = document.querySelector('title');
 const allProfilePosts = document.querySelector('#profile-post');
 const profileImage = document.querySelector('#profile-img');
+const userName = document.querySelector('#profile-name');
 const profileStats = document.querySelector('#profile-stats');
 
 /* export function profileData(data) {
@@ -50,8 +52,10 @@ export async function fetchProfile(url) {
       );
     }
 
+    title.innerHTML = `SoMe One - | ${profileName}`;
     profileImage.innerHTML += `<img src="${profileAvatar}" alt="Profile picture of ${profileName}" class="profile-pic rounded" />`;
-    profileStats.innerHTML += `<div class="">
+    userName.innerHTML += `<div class="w-auto p-1 text-dark flex-fill author-name text-break">${profileName}</div>`;
+    profileStats.innerHTML += `<div class="w-auto p-1 text-dark flex-fill author-name text-break"></div>
     <span class="material-symbols-outlined text-dark p-2">
     forum
     </span>: ${profileData.posts} <span class="material-symbols-outlined text-dark p-2">

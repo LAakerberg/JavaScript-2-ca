@@ -1,3 +1,4 @@
+let title = document.querySelector('title');
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get('id');
@@ -63,6 +64,7 @@ This just for make it more user friendly.
           'https://static.thenounproject.com/png/2884221-200.png';
       }
 
+      title.innerHTML = `SoMe One | Title: ${requestedPosts.title}`;
       specificTitle.innerHTML += `
       Posted by: ${requestedPosts.author.name}
       `;
