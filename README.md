@@ -11,28 +11,14 @@ Building of an social media app during my course assignment in JavaScript 2
 - - Avatar picture
 - - Post feed
 - - Create posts
+- - Delete/edit/update post on specific/detailed page
 - Post feed page
-- - Post feed with all created posts
-- - Filter/Sort be newest or oldest posts
+- - Post feed with all created posts (limit to 50 posts)
+- - Filter/Sort be newest or oldest posts by date
 - - Specific/detailed post page by ID.
-- - Delete post on specific/detailed page (Only working on specific pages)
+- - Search function, search by username / post title & body text. (Limit to the last 50 posts)
 
-## Features to be added or changes
+## Features to be added or changes next
 
-- Search function
-- Update posts function
-
-* - Moving delete posts from detailed page to profile page.
-* - When creating a post, the site should reload...
-* - If media file not is uploaded by user it should hide/display none for the div.
-
-## UI/UX
-
-- More user friendly UI/UX
-
-## Clean up the code
-
-- Clean up html/scss & JavaScript code
-- - Add more export/import functions
-- - Add/remove unnecessary innerHTML / console.log code....
-- - Secure that's the site is 100% responsive
+- - Adding an specific profile page for other users
+- - Edit profile page
