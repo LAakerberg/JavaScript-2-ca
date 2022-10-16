@@ -4,12 +4,6 @@ const profileImage = document.querySelector('#profile-img');
 const userName = document.querySelector('#profile-name');
 const profileStats = document.querySelector('#profile-stats');
 
-/* export function profileData(data) {
-  const { name, _count, avatar } = data;
-} */
-
-// import { deletePost } from '../posts/deletePost';
-
 import { API_PROFILE_URL } from '../auth/apiBase.mjs';
 import { sortCreatedDesc } from '../auth/apiBase.mjs';
 import { sortCreatedAsc } from '../auth/apiBase.mjs';
@@ -22,7 +16,6 @@ const method = 'GET';
 
 const profileName = localStorage.getItem('name');
 const profileAvatar = localStorage.getItem('avatar');
-const profileEmail = localStorage.getItem('email');
 
 /**
  * This function call the API to include the posts data from the user/profile

@@ -4,9 +4,6 @@ const id = params.get('id');
 
 const editPostForm = document.querySelector(`#edit-post`);
 
-/* import { authFetch } from '../../auth/authFetch.mjs'; */
-// import { uniquePost } from './details.mjs';
-
 import { API_SOCIAL_URL } from '../../auth/apiBase.mjs';
 import { authFetch } from '../../auth/authFetch.mjs';
 import { headers } from '../../auth/authFetch.mjs';

@@ -7,8 +7,6 @@ import { authFetch } from '../auth/authFetch.mjs';
 
 const method = 'delete';
 
-// async function for the API call to login.
-
 /**
  * This function will delete the unique post by ID.
  * The ID is collected by the request.

@@ -6,7 +6,6 @@ const id = params.get('id');
 const postsBox = document.querySelector('#posts');
 const postTitle = document.querySelector('#post-top');
 const specificTitle = document.querySelector('#specific-title');
-const mediaClass = document.querySelector('#media');
 
 const author = `_author`;
 const tru = `=true`;

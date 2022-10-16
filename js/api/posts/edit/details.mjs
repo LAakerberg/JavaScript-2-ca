@@ -5,8 +5,6 @@ const id = params.get('id');
 
 const postsBox = document.querySelector('#posts');
 const postTitle = document.querySelector('#post-top');
-const mediaClass = document.querySelector('#media');
-const editPost = document.querySelector('#edit-post');
 
 import { API_SOCIAL_URL } from '../../auth/apiBase.mjs';
 import { authFetch } from '../../auth/authFetch.mjs';

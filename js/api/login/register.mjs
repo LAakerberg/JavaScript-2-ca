@@ -22,7 +22,7 @@ export function registerUser() {
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Get the value from the login form on login.html page
+    // if the banner and avatar is missing, add an inserted avatar/banner with IF statement
 
     if (registerBanner.value === '') {
       registerBanner.value =
