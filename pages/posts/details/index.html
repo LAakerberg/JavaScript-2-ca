@@ -38,10 +38,10 @@
                 <a class="nav-link" aria-current="page" href="/pages/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../profile/">Profile</a>
+                <a class="nav-link" href="/pages/profile/index.html">Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/index.html">Log out</a>
+                <a id="logout" class="nav-link" href="/index.html">Log out</a>
               </li>
             </ul>
             <form role="search">
@@ -50,11 +50,12 @@
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                disabled
               />
             </form>
             <div class="ps-2 pt-2 pb-2">
-              <button class="btn btn-dark border-darkgrey">
-                <span class="material-symbols-outlined"> search </span>
+              <button class="icon" disabled>
+                <span class="material-symbols-outlined icon p-2"> search </span>
               </button>
             </div>
           </div>
@@ -65,9 +66,10 @@
     <main class="">
       <div class="row">
         <!-- Page header/title information -->
-        <div class="col-md-12 d-flex justify-content-center">
+        <div class="col-md-12 d-flex justify-content-center text-center">
           <div class="page-header">
             <h1 class="title">Welcome to SoMe platform</h1>
+            <h2 id="specific-title" class="title"></h2>
           </div>
         </div>
         <!---->

@@ -38,10 +38,10 @@
                 <a class="nav-link" aria-current="page" href="/pages/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../profile/">Profile</a>
+                <a class="nav-link" href="/pages/profile/index.html">Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/index.html">Log out</a>
+                <a id="logout" class="nav-link" href="/index.html">Log out</a>
               </li>
             </ul>
             <form role="search">
@@ -49,12 +49,12 @@
                 class="form-control"
                 type="search"
                 placeholder="Search"
-                aria-label="Search"
+                aria-label="Search" disabled
               />
             </form>
             <div class="ps-2 pt-2 pb-2">
-              <button class="btn btn-dark border-darkgrey">
-                <span class="material-symbols-outlined"> search </span>
+              <button class="icon" disabled>
+                <span class="material-symbols-outlined icon p-2"> search </span>
               </button>
             </div>
           </div>
@@ -67,7 +67,7 @@
         <!-- Page header/title information -->
         <div class="col-md-12 d-flex justify-content-center">
           <div class="page-header">
-            <h1 class="title">Welcome to SoMe platform</h1>
+            <h1 class="title">Edit or delete your post</h1>
           </div>
         </div>
         <!---->
@@ -80,9 +80,6 @@
           <!--Top div -->
           <div class="w-100 d-flex flex-row mb-3 border bg-darkpurple">
             <div class="p-2 justify-content-center">
-              <button id="open-edit" class="pt-1">
-                <span class="material-symbols-outlined edit-icon">edit</span>
-              </button>
             </div>
             <div
               id="post-top"
@@ -90,8 +87,8 @@
             ></div>
             <div class="p-2 justify-content-center">
               <!-- Trigger/Open The Modal for delete account-->
-              <button id="open-delete" class="pt-1">
-                <span class="material-symbols-outlined edit-icon">delete </span>
+              <button id="open-delete" class="icon">
+                <span class="material-symbols-outlined icon p-2">edit_square</span>
               </button>
             </div>
             <!-- The Modal delete button -->
