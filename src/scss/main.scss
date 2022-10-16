@@ -122,16 +122,16 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
   display: block;
 }
 
+.media-hide {
+  display: none;
+}
+
 .content-center {
   align-items: center;
   align-content: center;
   justify-content: center;
   justify-items: center;
   // margin: auto;
-}
-
-.media-hide {
-  display: none;
 }
 
 

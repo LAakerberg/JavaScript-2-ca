@@ -30,7 +30,7 @@
   }
 
   .material-symbols-outlined {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
   }
 
   .icon {
@@ -42,9 +42,12 @@
   button {
     text-decoration: none;
     display: inline-block;
-    background-color: #fff;
+    background-color: rgb(230, 221, 225);
+    color: black;
     padding: 0px;
     margin: 0px;
+    border: 1px solid rgb(88, 83, 104);
+    border-radius: 5px;
   }
 
   .icon:hover {
@@ -54,7 +57,8 @@
 
   button:hover {
     background-color: rgb(88, 83, 104);
-    border-color: rgb(119, 38, 38);
+    color: #fff;
+    border: 1px solid rgb(230, 221, 225);
     text-decoration: none;
     display: inline-block;
   }
