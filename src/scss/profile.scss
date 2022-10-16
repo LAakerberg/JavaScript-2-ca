@@ -1,7 +1,11 @@
-.profil-pic {
+/*
+ Specific profile page
+*/
+
+
+.profile-pic {
     width: 100%;
-    max-width: 300px;
-    margin: 10px;
+    margin-top: 10px;
 }
 
 .list-small {
@@ -25,4 +29,66 @@
 .post-card {
     max-width: 300px;
     height: auto;
+}
+
+.profile-data {
+    max-width: 300px;
+    padding-bottom: 10px;
+}
+
+// Max with create post
+
+.create-post-with {
+    max-width: 600px;
+}
+
+// Max with post feed 
+
+.post-feed {
+    max-width: 1500px;
+}
+
+/*
+Show thumbnails of profiles on login screen
+*/
+
+.profiles {
+    width: 100%;
+    padding: 5px 5px;
+}
+
+.thumbnail-card {
+    width: 150px;
+    height: 300px;
+    height: auto;
+    background-color: #fff;
+    padding: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 5px auto;
+}
+
+.thumbnail-profile-img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.thumbnail-img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.profile-thumbnail {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profileImg {
+    max-width: 110px;
 }

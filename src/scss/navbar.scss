@@ -30,7 +30,37 @@
   }
 
   .material-symbols-outlined {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+  }
+
+  .icon {
+    color: rgb(7, 7, 7);
+    transition: 0.6s;
+    object-fit: cover;
+  }
+
+  button {
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgb(230, 221, 225);
+    color: black;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid rgb(88, 83, 104);
+    border-radius: 5px;
+  }
+
+  .icon:hover {
+    color: white;
+    transition: 0.6s;
+  }
+
+  button:hover {
+    background-color: rgb(88, 83, 104);
+    color: #fff;
+    border: 1px solid rgb(230, 221, 225);
+    text-decoration: none;
+    display: inline-block;
   }
 
   .active {
@@ -43,6 +73,7 @@
   .form-width {
     max-width: 720px;
     margin: 0px auto;
+    min-height: 100px;
 }
 
 .row {

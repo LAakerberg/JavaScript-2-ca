@@ -1,0 +1,10 @@
+@media screen and (min-width: 750px) {
+  .post-profile-feed {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/*# sourceMappingURL=mediaquery.css.map */
