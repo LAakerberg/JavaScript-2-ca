@@ -12,8 +12,6 @@ import * as storage from '../storage/index.mjs';
 
 loginTitle.innerHTML = ``;
 
-// formLogin addEventListener will start the login function with a button.
-
 /**
  * This is the login in function for the site.
  * when the login in button is pressed the process is started.
